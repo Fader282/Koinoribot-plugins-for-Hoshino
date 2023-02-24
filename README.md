@@ -12,7 +12,7 @@
 冰祈是一个多功能娱乐型群聊机器人，功能具体请移步 [使用指南](https://www.lanxy.ink/?p=476)
 
 <details>
-  <summary>仓库内功能一览</summary>
+  <summary>仓库内部分功能一览</summary>
 
 - **每日签到**：`icelogin`
 - **更换称呼**：`call_me_please`
