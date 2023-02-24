@@ -221,7 +221,7 @@ def image_exist_check(file_path, url):
     检查图片是否缺失，缺失则获取图片
     """
     if not os.path.exists(file_path):
-        resp = requests.get(url = url, proxies = proxies).content
+        resp = requests.get(url = url, proxies = proxies, verify=True, headers=headers).content
         with open(file_path, 'wb') as f:
             f.write(resp)
 
