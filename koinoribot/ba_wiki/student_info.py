@@ -270,11 +270,6 @@ def get_student_info(student_id):
         furnitureInteraction = furnitureInteractionList[0]  # 可互动家具
     else:
         furnitureInteraction = 0
-    '''profileFullDescription = f'全名：{fullName}, 学校: {school}, 社团: {club}, 年龄: {age}, ' \
-                             f'生日: {birthday}, 爱好: {hobby}, 身高: {height}, cv: {cv}, 画师: {illustor}, ' \
-                             f'描述: {introduction}, 可互动家具: {furnitureInteraction}'''
-
-    # message_list.append(profileFullDescription)
 
     # 属性信息
 
@@ -289,13 +284,6 @@ def get_student_info(student_id):
     indoorBattleAdaptation = BattleAdaptation[base_info['IndoorBattleAdaptation']],  # 室内战斗力
     weaponType = base_info['WeaponType']  # 武器类型
     equipment = base_info['Equipment'][:]
-    '''informationFullDescription = f"初始星级: {starGrade}, 主类型: {squadType}, 作用类别: {tacticRole}, " \
-                                 f"站位: {position}, 攻击类型: {bulletType}, 防御类型: {armorType}, " \
-                                 f"街区战斗力: {streetBattleAdaptation[0]}, 户外战斗力: {outdoorBattleAdaptation[0]}, " \
-                                 f"室内战斗力: {indoorBattleAdaptation[0]}, 武器类型: {weaponType}, 装备饰品: {equipment}"
-
-    message_list.append(informationFullDescription)'''
-
     stabilityPoint = base_info["StabilityPoint"]
     attackPower = f'{base_info["AttackPower1"]}→{base_info["AttackPower100"]}'
     healthPoint = f'{base_info["MaxHP1"]}→{base_info["MaxHP100"]}'
@@ -309,17 +297,6 @@ def get_student_info(student_id):
     ammoCost = base_info["AmmoCost"]
     range_ = base_info["Range"]
     regenCost = base_info["RegenCost"]
-
-    '''staticFullDescription = f"HP:{healthPoint}		攻击:{attackPower}\n" \
-                            f"防御:{defensePower}		治愈:{healPower}\n" \
-                            f"闪避:{dodgePoint}		命中:{accuracyPoint}\n" \
-                            f"暴击:{criticalPoint}		暴伤:{criticalDamageRate}\n" \
-                            f"弹药:{ammoCount}		耗弹:{ammoCost}\n" \
-                            f"安定:{stabilityPoint}		射程:{range_}\n" \
-                            f"回费:{regenCost}\n"'''
-
-    # message_list.append(staticFullDescription)
-    # print(message_list)
 
     # 绘图
 
@@ -553,8 +530,6 @@ def get_skill_info(student_id):
         print('数据库不齐全')
         return None
 
-    #message_list = []
-
     base_info = get_item(student_data, "Id", student_id)  # 获取学生信息
     school = base_info['School']
     bulletType = base_info['BulletType']
@@ -570,9 +545,6 @@ def get_skill_info(student_id):
     terrian_adapt_tag = f'{weaponAdaptationType}BattleAdaptation'
     terrian_adapt_value = base_info[terrian_adapt_tag]
     new_adapt_value = int(terrian_adapt_value) + int(weaponAdaptationValue)
-    # weaponFullDescription = f'武器名: {weaponName}, 描述: {weaponDesc}, ' \
-    #                         f'地形战力强化: {weaponAdaptationType} {BattleAdaptation[terrian_adapt_value]}→{BattleAdaptation[new_adapt_value]}'
-    #message_list.append(weaponFullDescription)
 
     # 技能组
 
@@ -584,17 +556,12 @@ def get_skill_info(student_id):
     for skill in skill_info:
         skillType = skill['SkillType']  # 属于哪种技能
 
-        # skillFullDescription = f'{skillName}({SkillType[skillType]}):\n{skillDesc}'
         if skillType == 'weaponpassive':
             weapon_skill.append(skill)
         elif skillType == 'gearnormal':
             gear_skill.append(skill)
         else:
             normal_skill.append(skill)
-            # skill_list.append(skillFullDescription)
-    #message_list.append(skill_list)
-    #message_list.append(gear_skill)
-    #print(message_list)
 
     # 绘图
 
