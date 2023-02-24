@@ -3,6 +3,8 @@ import os
 import re
 
 from PIL import Image
+
+import hoshino
 from ..build_image import BuildImage
 
 from .term_dict import *
@@ -221,6 +223,7 @@ def image_exist_check(file_path, url):
     检查图片是否缺失，缺失则获取图片
     """
     if not os.path.exists(file_path):
+        hoshino.logger.info('downloading request image...')
         resp = requests.get(url = url, proxies = proxies, verify=True, headers=headers).content
         with open(file_path, 'wb') as f:
             f.write(resp)
