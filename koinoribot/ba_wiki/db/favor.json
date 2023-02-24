@@ -1,0 +1,1307 @@
+[
+  {
+    "Id": 5000,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Bedding",
+      "MomoFriends",
+      "F_Tsubaki",
+      "F_Sena"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_0",
+    "Name": "波浪猫造型枕",
+    "Desc": "话题的Momo好友联名商品第7弹！\n今年寝具类人气排行第3名的波浪猫造型枕。"
+  },
+  {
+    "Id": 5001,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Sports",
+      "MomoFriends",
+      "F_Hihumi",
+      "F_Shiroko",
+      "F_Hihumi_Swimsuit",
+      "F_Toki"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_1",
+    "Name": "佩洛洛健腹滚轮",
+    "Desc": "话题的Momo好友联名商品第9弹！\n今年运动器具人气排行第1名的佩洛洛造型运动器材。"
+  },
+  {
+    "Id": 5002,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Electronic",
+      "Music",
+      "F_Hibiki",
+      "F_Moe"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_2",
+    "Name": "aPod Pro",
+    "Desc": "最近大受基沃托斯学生欢迎的流行无线耳机。用零用钱来买还挺贵的。平均售价高达3个月的打工费。"
+  },
+  {
+    "Id": 5003,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Books",
+      "LoveStory",
+      "F_Tsurugi",
+      "F_Koharu",
+      "F_Tsurugi_Swimsuit"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_3",
+    "Name": "禁忌之恋 ~不被允许的恋情才更加美好~",
+    "Desc": "最近人气恋爱小说作者“恋爱鲤鱼”的最新作！\n无法实现的禁忌之恋，令人魂牵梦萦的话题作品！"
+  },
+  {
+    "Id": 5004,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Books",
+      "Game",
+      "F_Hare",
+      "F_Aris"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_4",
+    "Name": "游戏杂志 ‘Hit girls’",
+    "Desc": "不放过任何琐碎的情报。\n收录基沃托斯最新游戏发售消息、经典游戏攻略、游戏周边发售等消息的游戏杂志。"
+  },
+  {
+    "Id": 5005,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Cosmetics",
+      "Girlish",
+      "F_Asuna"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_5",
+    "Name": "樱桃玫瑰唇彩",
+    "Desc": "柔和、鲜明的色彩达成和谐的唇彩。\n大受喜欢打扮的女性欢迎的爆红商品。"
+  },
+  {
+    "Id": 5006,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Cosmetics",
+      "Beauty",
+      "F_Hanae",
+      "F_Saori"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_6",
+    "Name": "让肌肤清透的BB霜",
+    "Desc": "高级化妆品制造商“诗缪艾拉”发售的热门商品。\n能让肌肤晶莹剔透、明亮动人的BB霜。可以更自然地紧贴在肌肤上，打造健康好肤色。"
+  },
+  {
+    "Id": 5007,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Cosmetics",
+      "Army",
+      "F_Mashiro",
+      "F_Saki"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_7",
+    "Name": "军事3重伪装用粉底霜",
+    "Desc": "高级化妆品制造商“诗缪艾拉”发售的人气商品。\n渗透肌肤的舒适感！需要的时候可随地伪装！请随地体验专属于自己的伪装！"
+  },
+  {
+    "Id": 5008,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Dessert",
+      "Delicious",
+      "F_Airi",
+      "F_Yoshimi",
+      "F_Shun_Kid",
+      "F_Haruna_Newyear"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_8",
+    "Name": "高级饼干组合",
+    "Desc": "清香的甜味堪称一绝的薛丁格高级饼干组合。\n时常以50%的机率装入其他物品来代替饼干。"
+  },
+  {
+    "Id": 5009,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Books",
+      "Humanities",
+      "F_Ayane",
+      "F_Miyako",
+      "F_Ayane_Swimsuit"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_9",
+    "Name": "&lt;枪、可爱、青春&gt;",
+    "Desc": "枪、可爱、青春。\n追溯基沃托斯大众文化的起源 ，分析其根源的今天最佳畅销之作"
+  },
+  {
+    "Id": 5010,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Toy",
+      "Observational",
+      "F_Utaha",
+      "F_Nodoka",
+      "F_Utaha_Cheerleader"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_10",
+    "Name": "天文望远镜",
+    "Desc": "基沃托斯官方天文观测学会所采用的标准观测爱好装备天文望远镜。"
+  },
+  {
+    "Id": 5011,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Electronic",
+      "Game",
+      "F_Momoi",
+      "F_Neru_BunnyGirl"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_11",
+    "Name": "Game Girl Color 复刻版",
+    "Desc": "&lt;让你的空闲时间充满古风气息！&gt;\n过去风靡一时的著名经典游戏机Game Girl Color的复刻版。"
+  },
+  {
+    "Id": 5012,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Dessert",
+      "Army",
+      "F_Mashiro_Swimsuit"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_12",
+    "Name": "MX-ration C型甜点口味",
+    "Desc": "卡路里就是战斗力！"
+  },
+  {
+    "Id": 5013,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Dessert",
+      "Freakish"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_13",
+    "Name": "抹茶口味弹珠汽水",
+    "Desc": "具有独特风味的抹茶口味碳酸饮料。\n请尝尝绿色的清爽！"
+  },
+  {
+    "Id": 5014,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Bedding",
+      "Jellyz",
+      "F_Serina",
+      "F_Midori"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_14",
+    "Name": "果冻软垫",
+    "Desc": "经典游戏“摇摆果冻”系列的主角终于商品化了！\n相同颜色的果冻吃掉果冻的机关也忠实呈现！"
+  },
+  {
+    "Id": 5015,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Books",
+      "Detective",
+      "F_Shimiko",
+      "F_Koharu"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_15",
+    "Name": "超绝兔子侦探~被烟雾遮掩的温泉滑倒事件~",
+    "Desc": "绝不错过如果察觉事件的征兆就会竖起的纯白耳朵！超绝兔子侦探系列第3篇！\n这次的舞台是温泉！"
+  },
+  {
+    "Id": 5016,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Sports",
+      "Game",
+      "F_Sumire",
+      "F_Hanae_Holiday"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_16",
+    "Name": "O-奥比特",
+    "Desc": "&lt;透过游戏开心运动吧！&gt;\n利用O形环，在家中简单享受运动的工具。\n肌力运动、减肥，什么都办得到！"
+  },
+  {
+    "Id": 5017,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Curios",
+      "Roman",
+      "F_Hoshino",
+      "F_Shiroko_RidingSuit",
+      "F_Natsu",
+      "F_Cherino_Onsen",
+      "F_Hoshino_Swimsuit"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_17",
+    "Name": "藏宝图",
+    "Desc": "一定有宝物！\n标示基沃托斯3大宝藏的地图。"
+  },
+  {
+    "Id": 5018,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Toy",
+      "CuriousFellow",
+      "F_Neru",
+      "F_Mutsuki",
+      "F_Saya_Casual"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_18",
+    "Name": "cosplay用的圈圈眼镜",
+    "Desc": "只要戴上这个，你也是天才！\n只要戴上这副眼镜，(外表)就会变成天才。\n※ 注意 : IQ不会因为配戴这副眼镜而变高。"
+  },
+  {
+    "Id": 5019,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Curios",
+      "Mystery",
+      "F_Hina",
+      "F_Hanako",
+      "F_Hina_swimsuit"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_19",
+    "Name": "世界上最没用的机器",
+    "Desc": "毫无用处。可是很可爱！不过一点用都没有！但还是很可爱，没关系！适合在特别的日子赠送的玩具前5名的话题玩具。"
+  },
+  {
+    "Id": 5020,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Toy",
+      "Doll",
+      "F_Suzumi",
+      "F_Azusa",
+      "F_Azusa_Swimsuit",
+      "F_Karin_BunnyGirl",
+      "F_Wakamo",
+      "F_Marina",
+      "F_Misaki",
+      "F_Wakamo_Swimsuit"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_20",
+    "Name": "绑着蝴蝶结的熊娃娃",
+    "Desc": "虽然普通但却很讨喜的熊娃娃。\n在喜欢可爱小物的学生之间是非常有名的精品。"
+  },
+  {
+    "Id": 5021,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Reservation",
+      "Movie",
+      "F_Pina"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_21",
+    "Name": "电影预售票",
+    "Desc": "&lt;意义深远的电影请和亲朋好友一起看。&gt;\n可到任何电影院使用的电影预售券，只要有一张就能两人一起看！"
+  },
+  {
+    "Id": 5022,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Toy",
+      "Art",
+      "F_Juri"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_22",
+    "Name": "30色颜料组合",
+    "Desc": "内含30色色彩缤纷的专业颜料套组。\n用这套颜料组合描绘全世界吧！"
+  },
+  {
+    "Id": 5023,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Books",
+      "PureLiterature",
+      "F_Tomoe"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_23",
+    "Name": "古典诗集",
+    "Desc": "古意盎然的古典诗集。\n古典文学的古雅就在你手中。"
+  },
+  {
+    "Id": 5024,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Household",
+      "Food",
+      "F_Akane",
+      "F_Hiyori"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_24",
+    "Name": "可爱器皿组合",
+    "Desc": "画有可爱吉祥物动物角色的餐具组合。\n每年名列基沃托斯餐具销售前10名的传统强者。"
+  },
+  {
+    "Id": 5025,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Toy",
+      "Smart",
+      "F_Yuuka",
+      "F_Karin",
+      "F_Yuuka_Track"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_25",
+    "Name": "智力开发用拼图方块",
+    "Desc": "&lt;能解开它的你才是真正的千年奇才！&gt;\n千年科学学园公认高手级魔术方块。"
+  },
+  {
+    "Id": 5026,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Dessert",
+      "BigMeal",
+      "F_Cherino",
+      "F_Asuna_BunnyGirl",
+      "F_Sakurako"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_26",
+    "Name": "大型蛋糕",
+    "Desc": "光用看的就令人心满意足的大型蛋糕。\n卡路里标示在后方。"
+  },
+  {
+    "Id": 5027,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Reservation",
+      "BigMeal",
+      "F_Akari",
+      "F_Nodoka_Onsen"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_27",
+    "Name": "高级自助餐招待券",
+    "Desc": "可以享用基沃托斯第一主厨所在餐厅的高级自助餐的招待券。\n相当昂贵。"
+  },
+  {
+    "Id": 5028,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Horticulture",
+      "CuriousFellow",
+      "F_Hinata"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_28",
+    "Name": "食虫植物花盆",
+    "Desc": "少数具有独特爱好者所寻求的食虫植物花盆。\n因捕食昆虫的模样意外的可爱而大受欢迎。"
+  },
+  {
+    "Id": 5029,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Curios",
+      "CuriousFellow",
+      "F_Serika",
+      "F_Serika_Newyear"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_29",
+    "Name": "看起来很贵的金箔欲望之坛",
+    "Desc": "只看一眼就觉得很贵的金箔坛。\n小心山寨品！"
+  },
+  {
+    "Id": 5030,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Curios",
+      "Music",
+      "F_Chinatsu_Onsen",
+      "F_Nagisa"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_30",
+    "Name": "发条音乐盒",
+    "Desc": "原木演绎出高级复古感的发条音乐盒。\n在收藏家之间非常有名。"
+  },
+  {
+    "Id": 5031,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Fashion",
+      "Simplicity",
+      "F_Haruna",
+      "F_Izuna",
+      "F_Kirino_default",
+      "F_Mari",
+      "F_Miyu",
+      "F_Izuna_Swimsuit",
+      "F_Haruna_Newyear"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_31",
+    "Name": "刺绣手帕",
+    "Desc": "朴素的刺绣散发淡雅美感的手帕。"
+  },
+  {
+    "Id": 5032,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Books",
+      "Specialized",
+      "F_Atsuko"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_32",
+    "Name": "百科辞典",
+    "Desc": "从绑吐司袋的“那个”到装在便当里的那片“草”的名字。\n让你感到好奇的一切都在这里。"
+  },
+  {
+    "Id": 5033,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Functional",
+      "Specialized",
+      "F_Shizuko",
+      "F_Ako",
+      "F_Shizuko_Swimsuit",
+      "F_Fuuka_Newyear"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_33",
+    "Name": "健康辅助食品",
+    "Desc": "只吃一口力量就会泉涌而出！\n很适合送给重要的人的健康食品！"
+  },
+  {
+    "Id": 5034,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SR",
+    "Quality": 3,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSR",
+      "Swimsuit",
+      "WaterPlay"
+    ],
+    "SynthQuality": 20,
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_34",
+    "Name": "夏天用泳圈",
+    "Desc": "夏天！大海！\n即使不太会游泳或是很会游泳，为了安全一定要备妥的玩水必需品。花俏的设计让可爱也加分！"
+  },
+  {
+    "Id": 5100,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Bedding",
+      "F_Hoshino",
+      "F_Hoshino2",
+      "F_Misaki",
+      "F_Misaki2",
+      "F_Hoshino_Swimsuit",
+      "F_Hoshino_Swimsuit2",
+      "F_Serina_Holiday",
+      "F_Serina_Holiday2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_0",
+    "Name": "蕾丝枕头",
+    "Desc": "利用高级材质制成的蕾丝枕头。乍看之下可能很是很简单的设计，但如同它的名字，拥有着少女们的梦想。"
+  },
+  {
+    "Id": 5101,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Books"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_1",
+    "Name": "街头混混系列第1本",
+    "Desc": "以“对我们来说只有义气和胆识！”的台词闻名的热议话题之作，街头混混系列第1本。因为主角出乎意料地可爱的感想，所以全集都好评贩售中。"
+  },
+  {
+    "Id": 5102,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Cosmetics",
+      "F_Hihumi",
+      "F_Hihumi2",
+      "F_Hina",
+      "F_Hina2",
+      "F_Hina_swimsuit",
+      "F_Hina_swimsuit2",
+      "F_Asuna_BunnyGirl",
+      "F_Asuna_BunnyGirl2",
+      "F_Serina",
+      "F_Serina2",
+      "F_Mine",
+      "F_Mine2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_2",
+    "Name": "莎姆艾菈“THE．BEYOND”",
+    "Desc": "高级化妆品公司“Samuela”贩售的最高级香水。\n以“试着喷一次就将可爱穿上身吧”的广告标语而著名的超级无敌人气商品，为旷世天才调香师“The．Beyond”制作的Samuela12杰作之一。"
+  },
+  {
+    "Id": 5103,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Curios",
+      "F_Hoshino",
+      "F_Hoshino2",
+      "F_Ui",
+      "F_Ui2",
+      "F_Tomoe",
+      "F_Tomoe2",
+      "F_Hihumi_Swimsuit",
+      "F_Hihumi_Swimsuit2",
+      "F_Cherino_Onsen",
+      "F_Cherino_Onsen2",
+      "F_Chinatsu",
+      "F_Chinatsu2",
+      "F_Hoshino_Swimsuit",
+      "F_Hoshino_Swimsuit2",
+      "F_Himari",
+      "F_Himari2",
+      "F_Nagisa",
+      "F_Nagisa2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_3",
+    "Name": "高级蛋形工艺品",
+    "Desc": "蛋形模样的身体上镶嵌着美丽宝石并雕刻着几何图形的精巧工艺品。当然温暖地抱着它也不会孵出小鸡来。"
+  },
+  {
+    "Id": 5104,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Dessert",
+      "F_Akari",
+      "F_Akari2",
+      "F_Kirino_default",
+      "F_Kirino_default2",
+      "F_Asuna",
+      "F_Asuna2",
+      "F_Kokona",
+      "F_Kokona2",
+      "F_Hasumi_Track",
+      "F_Hasumi_Track2",
+      "F_Junko_Newyear",
+      "F_Junko_Newyear2",
+      "F_Mika",
+      "F_Mika2",
+      "F_Sakurako",
+      "F_Sakurako2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_4",
+    "Name": "CAFÉ．MILLE-FEUILLE的正宗百汇",
+    "Desc": "三一的有名饼干店千层咖啡厅贩售的百汇圣代。在柔软的冰淇淋上层层叠上饼干、糖浆、鲜奶油还有水果，这才是正宗的百汇圣代啊！"
+  },
+  {
+    "Id": 5105,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Electronic",
+      "F_Miyako",
+      "F_Miyako2",
+      "F_Yuuka",
+      "F_Yuuka2",
+      "F_Kotori",
+      "F_Kotori2",
+      "F_Hare",
+      "F_Hare2",
+      "F_Utaha",
+      "F_Utaha2",
+      "F_Ayane_Swimsuit",
+      "F_Ayane_Swimsuit2",
+      "F_Utaha_Cheerleader",
+      "F_Utaha_Cheerleader2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_5",
+    "Name": "A～BOOK RARE",
+    "Desc": "基沃托斯学生们最想拥有的电子设备TOP3中的笔记型电脑真的挺贵的。但是好想要！但果然很贵啊！"
+  },
+  {
+    "Id": 5106,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Fashion",
+      "F_Tsurugi",
+      "F_Tsurugi2",
+      "F_Azusa_Swimsuit",
+      "F_Azusa_Swimsuit2",
+      "F_Wakamo",
+      "F_Wakamo2",
+      "F_Miyu",
+      "F_Miyu2",
+      "F_Tsurugi_Swimsuit",
+      "F_Tsurugi_Swimsuit2",
+      "F_Wakamo_Swimsuit",
+      "F_Wakamo_Swimsuit2",
+      "F_Mari_Track",
+      "F_Mari_Track2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_6",
+    "Name": "时髦梳子",
+    "Desc": "高级感的时髦设计的携带型梳子。送礼用的人气商品。"
+  },
+  {
+    "Id": 5107,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Functional",
+      "F_Yuuka",
+      "F_Yuuka2",
+      "F_Mashiro",
+      "F_Mashiro2",
+      "F_Mashiro_Swimsuit",
+      "F_Mashiro_Swimsuit2",
+      "F_Saya_Casual",
+      "F_Saya_Casual2",
+      "F_Sena",
+      "F_Sena2",
+      "F_Juri",
+      "F_Juri2",
+      "F_Serina",
+      "F_Serina2",
+      "F_Shigure",
+      "F_Shigure2",
+      "F_Fuuka_Newyear",
+      "F_Fuuka_Newyear2",
+      "F_Kanna",
+      "F_Kanna2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_7",
+    "Name": "营养满分综合维他命果冻",
+    "Desc": "含有综合维他命的营养果冻商品。果冻拥有各种水果的味道，吃起来也很有趣。要小心可能一不小心就吃完了一整桶！"
+  },
+  {
+    "Id": 5108,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Horticulture",
+      "F_Tsubaki",
+      "F_Tsubaki2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_8",
+    "Name": "最高级枫树盆栽",
+    "Desc": "光是看着就能够让心情平静的最高级枫树盆栽。如同随着季节换衣服一样，不断变化的树叶才是有那样幽静的韵味。"
+  },
+  {
+    "Id": 5109,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Household",
+      "F_Karin_BunnyGirl",
+      "F_Karin_BunnyGirl2",
+      "F_Hinata",
+      "F_Hinata2",
+      "F_Pina",
+      "F_Pina2",
+      "F_Karin",
+      "F_Karin2",
+      "F_Hibiki_Cheerleader",
+      "F_Hibiki_Cheerleader2",
+      "F_Akane_BunnyGirl",
+      "F_Akane_BunnyGirl2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_9",
+    "Name": "针线组合",
+    "Desc": "挑选在各种情况下会需要的工具，专家专用的针线组合。只要有这个组合，不管是衣服破旧、袜子破洞都可以轻松解决！"
+  },
+  {
+    "Id": 5110,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Reservation",
+      "F_Haruna",
+      "F_Haruna2",
+      "F_Suzumi",
+      "F_Suzumi2",
+      "F_Haruna_Newyear",
+      "F_Haruna_Newyear2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_10",
+    "Name": "音乐演奏会门票",
+    "Desc": "在基沃托斯定期举办的音乐演奏会的门票。从经典乐曲到最近流行的流行歌曲。对喜欢各种类型音乐的人来说是最棒的礼物。"
+  },
+  {
+    "Id": 5111,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Sports",
+      "F_Hanae_Holiday",
+      "F_Hanae_Holiday2",
+      "F_Toki",
+      "F_Toki2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_11",
+    "Name": "一天三次哑铃组合",
+    "Desc": "装有多个不同重量的哑铃的组合商品。一天三次。早上、中午、晚上反复进行肌力运动，打造出帅气的肌肉吧！"
+  },
+  {
+    "Id": 5112,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "FavorItem",
+      "CraftMaterial_FavorItemSSR",
+      "Gift1",
+      "Toy",
+      "F_Aris",
+      "F_Aris2",
+      "F_Midori",
+      "F_Midori2",
+      "F_Neru_BunnyGirl",
+      "F_Neru_BunnyGirl2",
+      "F_Atsuko",
+      "F_Atsuko2",
+      "F_Momoi",
+      "F_Momoi2",
+      "F_Megu",
+      "F_Megu2"
+    ],
+    "ExpValue": 60,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_Lv2_12",
+    "Name": "桌游“THE·人生”",
+    "Desc": "可以就业、中头奖、进行宇宙之旅的好玩桌游。每局游戏都有难以预料结果的轮盘和骰子，就如同我们的人生一样。"
+  },
+  {
+    "Id": 5998,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "Gift1",
+      "Gift2"
+    ],
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_SSR_2",
+    "Name": "初音未来的写真卡",
+    "Desc": "初音未来在&lt;基沃托斯现场演唱会&gt;上发送的特制写真小卡。因为演唱会盛况空前，小卡成了凡是初音粉丝都想入手的稀有周边商品。"
+  },
+  {
+    "Id": 5999,
+    "IsReleased": [
+      true,
+      true
+    ],
+    "Category": "Favor",
+    "Rarity": "SSR",
+    "Quality": 4,
+    "Tags": [
+      "Gift1",
+      "Gift2"
+    ],
+    "ExpValue": 20,
+    "Shops": [],
+    "Icon": "Item_Icon_Favor_SSR_1",
+    "Name": "闪耀花束",
+    "Desc": "用水晶制成的花束，可以送给特别的人当纪念。\n受到光线照射时，会像万花镜般闪亮。"
+  }
+]

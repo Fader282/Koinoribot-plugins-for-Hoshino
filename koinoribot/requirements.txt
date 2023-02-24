@@ -1,0 +1,9 @@
+emoji==1.7.0
+fuzzywuzzy==0.18.0
+filetype==1.0.10
+ujson==5.1.0
+Pillow==9.4.0
+matplotlib==3.2.2
+tencentcloud-sdk-python==3.0.612
+scikit-image==0.19.2
+pydantic==1.10.1

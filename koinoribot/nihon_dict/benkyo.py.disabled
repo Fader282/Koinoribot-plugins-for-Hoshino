@@ -1,0 +1,39 @@
+import json
+import random
+import math
+
+filename = 'dictionary_R.json'
+with open(filename,'r',encoding = 'utf-8') as f:
+	content = json.load(f)
+print(content)
+question = random.choice(list(content))
+answer = content[question].strip('～')
+length = len(answer)
+user_answer = input(f'"{question}"的日语是(共{length}个假名)：')
+wrong_time = 0
+continue_to_ask = True
+'''
+while continue_to_ask:
+	if user_answer == answer:
+		print(f"回答正确！")
+		wrong_time = 0
+		question = random.choice(list(content))
+		answer = content[question].strip('～')
+		length = len(answer)
+		user_answer = input(f'"{question}"的日语是(共{length}个假名)：')
+		continue
+	elif user_answer != answer and wrong_time == 0:
+		print(f"答错了...")
+		wrong_time += 1
+		half_length = math.ceil(len(answer) / 2)
+		hint = ''
+		for i in range(half_length):
+			hint += answer[i]
+		user_answer = input(f"再试着回答一次：")
+		continue
+	elif user_answer != answer and wrong_time > 0:
+		print(f"还是没对哦,")
+		wrong_time += 1
+		user_answer = input(f"再试着回答一次（提示：前{half_length}个假名是“{hint}”）：")
+		continue
+'''

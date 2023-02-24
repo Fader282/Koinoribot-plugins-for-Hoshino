@@ -1,0 +1,18 @@
+import json
+
+filename = 'nihongo.txt'
+
+with open(filename, 'r', encoding = 'utf-8') as f:
+	lines = f.readlines()
+dango = []
+dictionary = {}
+
+for line in lines:
+	dango = line.split()
+	try:
+		dictionary[dango[1]] = dango[0]
+	except Exception:
+		continue
+
+with open('dictionary_R.json','w',encoding = 'utf-8') as f:
+	json.dump(dictionary, f, indent = 4, ensure_ascii=False)
