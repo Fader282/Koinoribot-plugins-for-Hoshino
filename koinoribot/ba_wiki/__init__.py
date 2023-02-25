@@ -155,35 +155,6 @@ async def student_nickname(bot, ev):
     await bot.send_group_forward_msg(group_id=ev['group_id'], messages=chain)
 
 
-@sv.on_prefix('档案音乐', 'bayy', 'dayy')
-async def archive_music(bot, ev):
-    uid = ev.user_id
-    message = ev.message.extract_plain_text().strip()
-    if not message:
-        return
-    if not priv.check_priv(ev, priv.SUPERUSER):
-        if not flmt.check(uid):
-            await bot.send(ev, f'请让冰祈休息一下QAQ...({round(flmt.left_time(uid))}s)')
-            return
-    id_and_fitrate = get_bgm_id(message)
-    if id_and_fitrate[0]:
-        bgm_id = id_and_fitrate[0]
-    else:
-        await bot.send(ev, '没有匹配到这首歌...' + sorry)
-        return
-    await bot.send(ev, '正在放置唱片...')
-    mp3_url = f'https://www.lanxy.ink/owo/bgm/Theme_{bgm_id}.mp3'
-    audio_title = id_and_fitrate[1]
-    card_msg = f'[CQ:music,url=https://www.lanxy.ink/,audio={mp3_url},image=https://www.lanxy.ink/wp-content/uploads/2023/02/UXS28IF6THV08MH9I6MD.png,title={audio_title},content=By冰祈_点击右侧图标播放~,name=BlueArchive,artists=Yostar,type=custom,subtype=163]'
-    '''ogg_path = os.path.join(os.path.dirname(__file__), f'BGM\\Theme_{bgm_id}.ogg')
-    with open(ogg_path, 'rb') as audioObj:
-        ogg_data = audioObj.read()
-    audios = 'base64://' + b64encode(ogg_data).decode()'''
-    await bot.send(ev, card_msg)
-    await bot.send(ev, f'冰祈正在播放：{id_and_fitrate[1]}，匹配度：{id_and_fitrate[-1]}%')
-    flmt.start_cd(uid)
-
-
 @sv.on_prefix('#buy')
 async def buy_stone(bot, ev):
     message = ev.message.extract_plain_text().strip()

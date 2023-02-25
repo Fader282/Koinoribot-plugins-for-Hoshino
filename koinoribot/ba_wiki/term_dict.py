@@ -19,7 +19,11 @@ Club = {
     'KnightsHospitaller': '救护骑士团', 'BookClub': '图书委员会', 'NinpoKenkyubu': '忍术研究部', 'GameDev': '游戏开发部',
     'RedwinterSecretary': '红冬事务局', 'Class227': '227号特别班', 'anzenkyoku': '生活安全局', 'SisterHood': '修女会',
     'EmptyClub': '无社团(停学)', 'Emergentology': '急救医学部', 'RabbitPlatoon': 'RABBIT小队', 'PandemoniumSociety': '万魔殿',
-    'AriusSqud': '阿里乌斯小队'
+    'AriusSqud': '阿里乌斯小队', "HotSpringsDepartment": "Hot Springs Department",
+    
+        "TeaParty": "Tea Party",
+        
+            "PublicPeaceBureau": "Public Peace Bureau",
 }
 
 ArmorType = {
