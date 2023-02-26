@@ -90,12 +90,15 @@ async def solve_group_invite(ctx):
         else:
             return
         white_list = loadData(whitelistPath, is_list=True)
+        if int(match_gid) in white_list:
+            await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'群{match_gid}已在白名单中')
+            return
         white_list.append(int(match_gid))
         saveData(white_list, whitelistPath)
         await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'已将群{match_gid}加入白名单')
         return
     if 'remw' in str(message):
-        match_ = re.match(r'(addw)(\d+)', str(message))
+        match_ = re.match(r'(remv)(\d+)', str(message))
         if match_ is not None:
             match_gid = match_.group(2)
         else:
@@ -105,6 +108,7 @@ async def solve_group_invite(ctx):
             white_list.remove(int(match_gid))
         except ValueError:
             await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'群{match_gid}不在白名单里')
+            return
         saveData(white_list, whitelistPath)
         await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'已将群{match_gid}移除白名单')
     match_ = re.match(r'(tyg)(\d+)', str(message))
