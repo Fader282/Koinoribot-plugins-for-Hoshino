@@ -1,6 +1,14 @@
 # 冰祈插件相关配置文件
 
 
+# 好友、群聊管理
+white_list_group = 0  # 白名单群聊
+group_auto_approve = False  # 是否自动同意进群(需进入白名单群）
+friend_auto_approve = False   # 是否自动同意好友邀请（需进入白名单群）
+star_cost_mode = False  # 是否需要消耗星星来获得bot好友
+
+
+
 # 腾讯api
 # 密钥可前往https://console.cloud.tencent.com/cam/capi/网站进行获取
 TXSecretId = ''

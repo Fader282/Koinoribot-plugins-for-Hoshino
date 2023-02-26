@@ -3,6 +3,7 @@ import shutil
 
 import time
 from hoshino import Service
+from hoshino.config import SUPERUSERS
 from .._R import userPath
 
 sv = Service('签到数据自动备份')
@@ -19,7 +20,7 @@ async def auto_back_up_database():
     sv.logger.info('开始备份签到数据')
     backup_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime(time.time()))
     path = os.path.join(userPath, 'user_money.json')
-    backup_path = os.path.join(userPath, f'backup/user_money-{backup_time}.json')
+    backup_path = os.path.join(userPath, f'icelogin/backup/user_money-{backup_time}.json')
     shutil.copyfile(path, backup_path)
     sv.logger.info('签到数据备份完成')
     isOnChecking = False
@@ -27,12 +28,12 @@ async def auto_back_up_database():
 
 @sv.on_fullmatch('签到备份')
 async def back_up_database(bot, ev):
-    if ev.user_id not in [2826417152]:
+    if ev.user_id not in SUPERUSERS:
         return
     try:
         backup_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime(time.time()))
         path = os.path.join(userPath, 'user_money.json')
-        backup_path = os.path.join(userPath, f'backup/user_money-{backup_time}.json')
+        backup_path = os.path.join(userPath, f'icelogin/backup/user_money-{backup_time}.json')
         shutil.copyfile(path, backup_path)
         await bot.send(ev, 'ok')
     except Exception as e:
