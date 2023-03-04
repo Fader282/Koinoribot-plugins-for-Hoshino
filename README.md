@@ -22,6 +22,7 @@
 - **人脸卡通化**：`cartoon`
 - **图片美学评分**：`DetectDisgust`
 - **随机美图**：`sinaimg`
+- **chatGPT**：`openai_api`
 - 其他小型功能，具体可查看各自文件夹里的 `__init__.py` 文件
 
 </details>

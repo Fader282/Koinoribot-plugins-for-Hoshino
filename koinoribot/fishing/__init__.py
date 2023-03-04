@@ -147,8 +147,8 @@ async def buy_bait_func(bot, ev):
         num = 1
     else:
         num = int(message)
-    if num>10:
-        await bot.send(ev, '一次只能购买10个鱼饵喔' + no)
+    if num>50:
+        await bot.send(ev, '一次只能购买50个鱼饵喔' + no)
         return
     user_gold = money.get_user_money(uid, 'gold')
     if user_gold<num * config.BAIT_PRICE:

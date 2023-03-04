@@ -6,7 +6,6 @@ import emoji
 from hoshino import Service
 from ..build_image import BuildImage
 
-from .config import Config
 from .data_source import mix_emoji
 
 sv = Service('合成emoji')

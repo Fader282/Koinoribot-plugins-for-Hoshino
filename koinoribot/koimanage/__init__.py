@@ -28,9 +28,10 @@ async def handle_group_invite(session: RequestSession):
         member_list = [member['user_id'] for member in group_info]
     except ActionFailed:
         member_list = []
-    (is_msg, in_group_flag) = ('(已加入杂谈群)', 1) if uid in member_list else ('(未加入杂谈群)', 0)
+    is_msg = '已加入杂谈群' if uid in member_list else '未加入杂谈群'
+    in_group_flag = 1 if uid in member_list else 0
     is_msg = '(bot未进入白名单群)' if not member_list else in_group_flag
-    await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'[群邀请]收到来自QQ{uid}{is_msg}的邀请请求:群{gid}, flag:{flag_id}')
+    await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'[群邀请]收到来自QQ{uid}({is_msg})的邀请请求:群{gid}, flag:{flag_id}')
     add_invite_info(gid, flag_id)
     if bot_auto_approve and in_group_flag:  # 带冷却的自动同意
         now = int(time.time())
@@ -59,16 +60,17 @@ async def notice_friend_request(session: RequestSession):
         member_list = [member['user_id'] for member in group_info]
     except ActionFailed:
         member_list = []
-    (is_msg, is_auto) = ('已加入杂谈群', 1) if uid in member_list else ('未加入杂谈群', 0)
+    is_msg = '已加入杂谈群' if uid in member_list else '未加入杂谈群'
+    is_auto = 1 if uid in member_list else 0
     is_msg = '(bot未进入白名单群)' if not member_list else is_msg
-    await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'收到来自QQ{uid}{is_msg}的好友请求:"{comment}", flag:{flag_id}')
+    await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'收到来自QQ{uid}({is_msg})的好友请求:"{comment}", flag:{flag_id}')
     if bot_auto_approve and is_auto:
         now = int(time.time())
         cool_time = loadData(os.path.join(os.path.dirname(__file__), f'friend_request_{ev.self_id}.json'))
         cool_time = cool_time['time']
         if now >= cool_time + 7200:  # 两个小时同意一次
             await bot.set_friend_add_request(flag = str(flag_id), approve = True)
-            await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'已自动同意QQ{uid}{is_msg}的好友请求')
+            await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'已自动同意QQ{uid}({is_msg})的好友请求')
             saveData({'time': now}, os.path.join(os.path.dirname(__file__), f'friend_request_{ev.self_id}.json'))
         else:
             return
@@ -98,7 +100,7 @@ async def solve_group_invite(ctx):
         await bot.send_private_msg(user_id=SUPERUSERS[0], message=f'已将群{match_gid}加入白名单')
         return
     if 'remw' in str(message):
-        match_ = re.match(r'(remv)(\d+)', str(message))
+        match_ = re.match(r'(remw)(\d+)', str(message))
         if match_ is not None:
             match_gid = match_.group(2)
         else:
@@ -122,9 +124,12 @@ async def solve_group_invite(ctx):
         if match_flag in request_dict.keys():
             request_gid = request_dict[match_flag]
             white_list = loadData(whitelistPath, is_list=True)
-            white_list.append(int(request_gid))
-            saveData(white_list, whitelistPath)
-            add_msg = f'(已将群{request_gid}加入白名单)'
+            if int(request_gid) not in white_list:
+                white_list.append(int(request_gid))
+                saveData(white_list, whitelistPath)
+                add_msg = f'(已将群{request_gid}加入白名单)'
+            else:
+                add_msg = f'(群{request_gid}已在白名单中)'
         else:
             add_msg = '(未找到该群聊，白名单添加失败，请手动添加)'
         await bot.send_private_msg(user_id=SUPERUSERS[0], message='已同意邀请' + add_msg)
@@ -162,6 +167,4 @@ def add_invite_info(gid, flag):
     gid, flag= str(gid), str(flag)
     request_manager[flag] = gid
     saveData(request_manager, requestPath)
-
-
 
