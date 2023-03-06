@@ -10,12 +10,13 @@ from hoshino.config import NICKNAME, SUPERUSERS
 from hoshino.typing import CQEvent
 from hoshino.util import FreqLimiter, DailyNumberLimiter
 from .. import GroupFreqLimiter as freq
-from .._R import get, imgPath
+from .._R import get, userPath
 from ..utils import chain_reply, get_net_img
 from ..config import AUTO_SAVE, AUTO_DELETE, DELETE_TIME
 
 url_iw = 'https://iw233.cn/API/Random.php'
-path = os.path.join(imgPath, "sinaimg")
+url_loli = 'https://www.loliapi.com/acg'
+path = os.path.join(userPath, "sinaimg")
 white_path = os.path.join(os.path.dirname(__file__), 'whitelist.json')
 _max = 99
 _time = 30  # 单张图的冷却
@@ -43,15 +44,22 @@ async def creep_img(session, url):  # 异步爬取
         return imgname
 
 
-@sv.on_rex(r'(来|來|莱)(点|點|份|張|张|丶)(涩|色|美|黄)(图|圖)')
+@sv.on_rex(r'(来|來|莱)(点|點|份|張|张|丶)(涩|色|美|黄)(图|圖)(?P<kw>pc|cat)?')
 async def random_wallpaper(bot, ev: CQEvent):
     gid = ev['group_id']
+    match_msg = ev.match
     if ev.user_id not in SUPERUSERS:
         if freq.check_reload_group(group_id = gid, _type = 'boolean'):  # 整个群的冷却
             await bot.send(ev, f'冰祈冷却中...({freq.check_reload_group(gid)}s)')
             return
     await bot.send(ev, '冰祈咏唱中...')
     freq.set_reload_group(group_id = gid, _time = _time)
+    msg_kw = match_msg.group('kw')
+    url_iw = 'https://iw233.cn/API/Random.php'
+    if msg_kw == 'pc':
+        url_iw = 'https://iw233.cn/api.php?sort=pc'
+    if msg_kw == 'cat':
+        url_iw = 'https://iw233.cn/api.php?sort=cat'
     if AUTO_SAVE:
         try:
             async with aiohttp.ClientSession() as session:

@@ -27,6 +27,10 @@ AUTO_SAVE = True  # 是否保存到本地
 AUTO_DELETE = False  # 是否撤回
 DELETE_TIME = 30  # 撤回的等待时间
 
+# danbooru
+SAVE_MODE = False  # 是否保存到本地
+DELETE_MODE = False  # 是否自动撤回
+
 # arcaeaAPI
 api_url = ''
 token = ''

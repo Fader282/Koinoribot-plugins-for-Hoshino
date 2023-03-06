@@ -8,3 +8,4 @@ tencentcloud-sdk-python==3.0.612
 scikit-image==0.19.2
 pydantic==1.10.1
 urllib3==1.24.3
+openai

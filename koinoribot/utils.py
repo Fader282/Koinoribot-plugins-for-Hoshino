@@ -4,6 +4,8 @@ import os
 import re
 
 import aiohttp
+import asyncio
+asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from .build_image import BuildImage
 
@@ -100,6 +102,18 @@ async def get_net_img(url) -> BuildImage:
     """
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as r:
+            content = await r.read()
+    file = io.BytesIO(content)
+    icon = BuildImage(0, 0, background = file)
+    return icon
+
+
+async def get_net_img_proxy(url) -> BuildImage:
+    """
+        下载网络图片（走代理）
+    """
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url, proxy = 'http://127.0.0.1:7890') as r:
             content = await r.read()
     file = io.BytesIO(content)
     icon = BuildImage(0, 0, background = file)

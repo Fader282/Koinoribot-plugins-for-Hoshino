@@ -10,7 +10,8 @@ from ..build_image import BuildImage
 from .term_dict import *
 from .util import *
 from .._R import imgPath
-from ..config import proxies
+
+proxies = {'http': 'http://127.0.0.1:7890'}
 
 
 from fuzzywuzzy import process
@@ -224,7 +225,7 @@ def image_exist_check(file_path, url):
     """
     if not os.path.exists(file_path):
         hoshino.logger.info('downloading request image...')
-        resp = requests.get(url = url, proxies = proxies, verify=True, headers=headers).content
+        resp = requests.get(url = url, headers=headers).content
         with open(file_path, 'wb') as f:
             f.write(resp)
 
