@@ -1,6 +1,5 @@
 import os
 import time
-import ujson
 from nonebot import RequestSession, get_bot
 from aiocqhttp.exceptions import ActionFailed
 from hoshino import Service

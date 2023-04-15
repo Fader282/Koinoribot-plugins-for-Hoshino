@@ -140,18 +140,7 @@ async def student_nickname(bot, ev):
             msg = ''
     chain = []
     for msg in msglist:
-        node = {
-            "type": "node",
-            "data": {
-                "name": str(NICKNAME),
-                "uin": str(ev.self_id),
-                "content": [
-                    {
-                        "type": "text",
-                        "data": {
-                            "text": msg}}]}
-        }
-        chain.append(node)
+        await chain_reply(bot, ev, chain, msg)
     await bot.send_group_forward_msg(group_id=ev['group_id'], messages=chain)
 
 

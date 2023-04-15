@@ -14,10 +14,10 @@ luxun_author = BuildImage(0, 0, plain_text="——鲁迅", font_size=30, font='S
 shake_author = BuildImage(0, 0, plain_text="——莎士比亚", font_size=30, font='HGFS_CNKI.TTF', font_color=(255, 255, 255))
 
 
-@sv.on_rex(r'^((魯|鲁)(迅|訊|讯)(说|讲|說|講)(過|过)?)(?P<kw>.*$)')
+@sv.on_rex(r'^((魯|鲁)(迅|訊|讯)(说|讲|說|講)(過|过)?)(.*$)')
 async def luxun_once_said(bot, ev):
     match = ev['match']
-    message = match.group('kw').strip()
+    message = match.group(6).strip()
     for biaodian in [',', '，', ':', '：']:
         if message.startswith(biaodian):
             message.strip(biaodian)
@@ -42,10 +42,10 @@ async def luxun_once_said(bot, ev):
     await bot.send(ev, imageToSend)
 
 
-@sv.on_rex(r'^(莎士比(亚|亞)(说|讲|說|講)(過|过)?)(?P<kw>.*$)')
+@sv.on_rex(r'^(莎士比(亚|亞)(说|讲|說|講)(過|过)?)(.*$)')
 async def shashibiya_once_said(bot, ev):
     match = ev['match']
-    message = match.group('kw').strip()
+    message = match.group(6).strip()
     for biaodian in [',', '，', ':', '：']:
         if message.startswith(biaodian):
             message.strip(biaodian)

@@ -105,11 +105,8 @@ async def getIcon(partner: int):
             'partner': partner
         }
         resp = await getArcInfo(url, params, resp_type='byte')
-        if b'Exif' in resp:
-            with open(os.path.join(icon_path), 'wb') as file:
-                file.write(resp)
-        else:
-            return ujson.decode(resp)
+        with open(os.path.join(icon_path), 'wb') as file:
+            file.write(resp)
     return {'status': 0, 'message': icon_path}
 
 
@@ -127,11 +124,8 @@ async def getPortrait(partner: int):
             'partner': partner
         }
         resp = await getArcInfo(url, params, resp_type='byte')
-        if b'Exif' in resp:
-            with open(os.path.join(portrait_path), 'wb') as file:
-                file.write(resp)
-        else:
-            return ujson.decode(resp)
+        with open(os.path.join(portrait_path), 'wb') as file:
+            file.write(resp)
     return {'status': 0, 'message': portrait_path}
 
 
@@ -157,15 +151,8 @@ async def getSongPic(song_id: str, difficulty: int = 2):
             'difficulty': difficulty
         }
         resp = await getArcInfo(url, params, resp_type='byte')
-        if b'Exif' in resp:
-            with open(os.path.join(song_pic_path), 'wb') as file:
-                file.write(resp)
-        else:
-            try:
-                return ujson.decode(resp)
-            except:
-                with open(os.path.join(song_pic_path), 'wb') as file:
-                    file.write(resp)
+        with open(os.path.join(song_pic_path), 'wb') as file:
+            file.write(resp)
     return {'status': 0, 'message': song_pic_path}
 
 

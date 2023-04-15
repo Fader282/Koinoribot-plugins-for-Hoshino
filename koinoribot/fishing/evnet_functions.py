@@ -177,8 +177,8 @@ async def ev5_1(bot, ev, uid):
 
 
 async def ev5_2(bot, ev, uid):
-    msg = '你将两枚幸运币放入投币口，拉下拉杆，一阵响动后，'
-    money.reduce_user_money(uid, 'luckygold', 2)
+    msg = '你将一枚幸运币放入投币口，拉下拉杆，一阵响动后，'
+    money.reduce_user_money(uid, 'luckygold', 1)
     increase_value(uid, 'fish', '🔮', 1)
     await bot.send(ev, msg + '老虎机渐渐被柔和的光包围，与此同时其形状也开始发生变化，最终化为了一颗水之心，静静地躺在你的手里。(🔮+1)', at_sender = True)
     return

@@ -244,12 +244,6 @@ def get_student_info(student_id):
     student_data = json.load(open(os.path.join(database_path, 'students.json'), encoding='utf-8'))
     localization_data = json.load(open(os.path.join(database_path, 'localization.json'), encoding='utf-8'))
     favor_data = json.load(open(os.path.join(database_path, 'favor.json'), encoding='utf-8'))
-    audio_data = json.load(open(os.path.join(database_path, 'audio.json'), encoding='utf-8'))
-    audio_name = ''
-    for i, j in audio_data.items():
-        if student_id in j:
-            audio_name = i
-    print(audio_name)
 
     message_list = []
 
@@ -269,6 +263,7 @@ def get_student_info(student_id):
     illustor = base_info['ArtistName']
     introduction = f"学生介绍：\n{base_info['ProfileIntroduction']}\n\n招募台词：\n{base_info['CharacterSSRNew']}"
     memoryLobby = base_info['MemoryLobby'][0]
+    memoryLobbyBGM = base_info['MemoryLobbyBGM']
     furnitureInteractionList = base_info['FurnitureInteraction'][0]
     if furnitureInteractionList:
         furnitureInteraction = furnitureInteractionList[0]  # 可互动家具
@@ -516,7 +511,7 @@ def get_student_info(student_id):
     global debug_mode
     if debug_mode == 1:
         background.save(os.path.join(baImgPath, 'card.png'))
-    return imageToSend, audio_name, introduction
+    return imageToSend, memoryLobbyBGM, introduction
 
 
 def get_skill_info(student_id):
@@ -658,6 +653,10 @@ def get_skill_info(student_id):
         skill_template = BuildImage(0, 0, background = baImgPath + '/source/cardsrc/skill_card_skill_vac_1.png', font_size=25, font = font_SC_Bold)
     i = 0
     for skill in normal_skill:
+
+        if skill['SkillType'] == 'autoattack':  # 作用暂时不明？
+            continue
+
         skillType = SkillType[skill['SkillType']]
         skillName = skill['Name']
         if skillType == 'EX技能':
