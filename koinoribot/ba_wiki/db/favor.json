@@ -16,12 +16,15 @@
       "F_Tsubaki",
       "F_Sena"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_0",
-    "Name": "波浪猫造型枕",
-    "Desc": "话题的Momo好友联名商品第7弹！\n今年寝具类人气排行第3名的波浪猫造型枕。"
+    "Name": "波浪猫枕",
+    "Desc": "火爆的Momo好友联名商品，第7弹！\n入选今年寝具排名第三位的波浪猫造型枕。"
   },
   {
     "Id": 5001,
@@ -40,14 +43,18 @@
       "F_Hihumi",
       "F_Shiroko",
       "F_Hihumi_Swimsuit",
-      "F_Toki"
+      "F_Toki",
+      "F_Toki_BunnyGirl"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_1",
     "Name": "佩洛洛健腹滚轮",
-    "Desc": "话题的Momo好友联名商品第9弹！\n今年运动器具人气排行第1名的佩洛洛造型运动器材。"
+    "Desc": "火爆的Momo好友联名商品，第9弹！\n荣获今年运动器材第一名的，佩洛洛型健腹滚轮！？"
   },
   {
     "Id": 5002,
@@ -66,12 +73,15 @@
       "F_Hibiki",
       "F_Moe"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_2",
-    "Name": "aPod Pro",
-    "Desc": "最近大受基沃托斯学生欢迎的流行无线耳机。用零用钱来买还挺贵的。平均售价高达3个月的打工费。"
+    "Name": "A-Pods Pro",
+    "Desc": "最近大受基沃托斯学生欢迎的无线耳机。用零用钱来买还挺贵的。平均售价约为3个月的打工费。"
   },
   {
     "Id": 5003,
@@ -91,12 +101,15 @@
       "F_Koharu",
       "F_Tsurugi_Swimsuit"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_3",
-    "Name": "禁忌之恋 ~不被允许的恋情才更加美好~",
-    "Desc": "最近人气恋爱小说作者“恋爱鲤鱼”的最新作！\n无法实现的禁忌之恋，令人魂牵梦萦的话题作品！"
+    "Name": "禁忌之恋 ～不被允许才更加美好～",
+    "Desc": "著名恋爱小说作家「恋鲤」的最新作！\n无法实现的婚姻，关于禁忌之恋的争议作品！"
   },
   {
     "Id": 5004,
@@ -113,14 +126,18 @@
       "Books",
       "Game",
       "F_Hare",
-      "F_Aris"
+      "F_Aris",
+      "F_Aris_Maid"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_4",
-    "Name": "游戏杂志 ‘Hit girls’",
-    "Desc": "不放过任何琐碎的情报。\n收录基沃托斯最新游戏发售消息、经典游戏攻略、游戏周边发售等消息的游戏杂志。"
+    "Name": "游戏杂志「Hit Girls」",
+    "Desc": "一切信息皆集于此。从基沃托斯的最新游戏情报，到复古游戏的攻略、游戏周边的发售消息，一切关于游戏的事都能在这本游戏杂志里找到。"
   },
   {
     "Id": 5005,
@@ -138,12 +155,15 @@
       "Girlish",
       "F_Asuna"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_5",
     "Name": "樱桃玫瑰唇彩",
-    "Desc": "柔和、鲜明的色彩达成和谐的唇彩。\n大受喜欢打扮的女性欢迎的爆红商品。"
+    "Desc": "兼具可爱与鲜艳的唇彩。\n当下最火的单品，在热爱时尚的女性中掀起了人气风暴。"
   },
   {
     "Id": 5006,
@@ -162,12 +182,15 @@
       "F_Hanae",
       "F_Saori"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_6",
     "Name": "让肌肤清透的BB霜",
-    "Desc": "高级化妆品制造商“诗缪艾拉”发售的热门商品。\n能让肌肤晶莹剔透、明亮动人的BB霜。可以更自然地紧贴在肌肤上，打造健康好肤色。"
+    "Desc": "高级化妆品制造商「莎慕艾菈」发售的大火商品。能让肌肤变得通透明亮。自然地附着在肌肤上，看上去就像是健康的(?)肤色。"
   },
   {
     "Id": 5007,
@@ -186,12 +209,15 @@
       "F_Mashiro",
       "F_Saki"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_7",
-    "Name": "军事3重伪装用粉底霜",
-    "Desc": "高级化妆品制造商“诗缪艾拉”发售的人气商品。\n渗透肌肤的舒适感！需要的时候可随地伪装！请随地体验专属于自己的伪装！"
+    "Name": "三合一军用迷彩霜",
+    "Desc": "高级化妆品制造商「莎慕艾菈」发售的大火商品。渗入肌肤的舒适感！必要时可随地进行迷彩！随地都能进行专属自己的迷彩！"
   },
   {
     "Id": 5008,
@@ -212,12 +238,15 @@
       "F_Shun_Kid",
       "F_Haruna_Newyear"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_8",
-    "Name": "高级饼干组合",
-    "Desc": "清香的甜味堪称一绝的薛丁格高级饼干组合。\n时常以50%的机率装入其他物品来代替饼干。"
+    "Name": "高级盒装饼干",
+    "Desc": "柔和的甜味堪称一绝的薛定谔高级饼干组合。\n有可能会有其他东西代替饼干放在里面。在打开之前无法确认里面装着什么。"
   },
   {
     "Id": 5009,
@@ -237,12 +266,15 @@
       "F_Miyako",
       "F_Ayane_Swimsuit"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_9",
-    "Name": "&lt;枪、可爱、青春&gt;",
-    "Desc": "枪、可爱、青春。\n追溯基沃托斯大众文化的起源 ，分析其根源的今天最佳畅销之作"
+    "Name": "『枪 可爱 青春』",
+    "Desc": "枪与可爱，以及青春。\n回归基沃托斯大众文化始发点的本年度畅销书。"
   },
   {
     "Id": 5010,
@@ -262,12 +294,15 @@
       "F_Nodoka",
       "F_Utaha_Cheerleader"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_10",
     "Name": "天文望远镜",
-    "Desc": "基沃托斯官方天文观测学会所采用的标准观测爱好装备天文望远镜。"
+    "Desc": "基沃托斯天文协会作为标准仪器所指定的天文望远镜。"
   },
   {
     "Id": 5011,
@@ -286,12 +321,15 @@
       "F_Momoi",
       "F_Neru_BunnyGirl"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_11",
-    "Name": "Game Girl Color 复刻版",
-    "Desc": "&lt;让你的空闲时间充满古风气息！&gt;\n过去风靡一时的著名经典游戏机Game Girl Color的复刻版。"
+    "Name": "Game Girl Color复刻版",
+    "Desc": "『再一次拥抱多彩生活吧』\n过去风靡基沃托斯全境的游戏机「Game Girl Color」的复刻版。"
   },
   {
     "Id": 5012,
@@ -309,11 +347,14 @@
       "Army",
       "F_Mashiro_Swimsuit"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_12",
-    "Name": "MX-ration C型甜点口味",
+    "Name": "MX-口粮 C型甜点风味",
     "Desc": "卡路里就是战斗力！"
   },
   {
@@ -331,12 +372,15 @@
       "Dessert",
       "Freakish"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_13",
-    "Name": "抹茶口味弹珠汽水",
-    "Desc": "具有独特风味的抹茶口味碳酸饮料。\n请尝尝绿色的清爽！"
+    "Name": "抹茶味弹珠汽水",
+    "Desc": "具有让人无法拒绝的独特风味的抹茶味碳酸饮料。\n碧绿而清爽！"
   },
   {
     "Id": 5014,
@@ -355,12 +399,15 @@
       "F_Serina",
       "F_Midori"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_14",
     "Name": "果冻软垫",
-    "Desc": "经典游戏“摇摆果冻”系列的主角终于商品化了！\n相同颜色的果冻吃掉果冻的机关也忠实呈现！"
+    "Desc": "经典游戏「摇摆果冻」系列的主角终于商品化了！\n同色果冻互相吞噬的机制也完美还原！"
   },
   {
     "Id": 5015,
@@ -379,12 +426,15 @@
       "F_Shimiko",
       "F_Koharu"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_15",
-    "Name": "超绝兔子侦探~被烟雾遮掩的温泉滑倒事件~",
-    "Desc": "绝不错过如果察觉事件的征兆就会竖起的纯白耳朵！超绝兔子侦探系列第3篇！\n这次的舞台是温泉！"
+    "Name": "超绝兔子侦探 ～被烟雾遮掩的温泉滑倒事件～",
+    "Desc": "不放过任何事件情报的纯白兔耳！超绝兔子侦探系列，第3篇！\n这次的舞台是温泉！"
   },
   {
     "Id": 5016,
@@ -403,12 +453,15 @@
       "F_Sumire",
       "F_Hanae_Holiday"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_16",
-    "Name": "O-奥比特",
-    "Desc": "&lt;透过游戏开心运动吧！&gt;\n利用O形环，在家中简单享受运动的工具。\n肌力运动、减肥，什么都办得到！"
+    "Name": "O-Fit",
+    "Desc": "「体验游戏般快乐的运动吧！」\n助你在家中轻松享受运动的游戏的O形环\n肌肉锻炼或是减肥，都请交给它吧！"
   },
   {
     "Id": 5017,
@@ -430,12 +483,15 @@
       "F_Cherino_Onsen",
       "F_Hoshino_Swimsuit"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_17",
     "Name": "藏宝图",
-    "Desc": "一定有宝物！\n标示基沃托斯3大宝藏的地图。"
+    "Desc": "去找吧！世上的一切就在那里！\n一张据说标明了基沃托斯三大宝藏地点的地图。在基沃托斯各地有售。"
   },
   {
     "Id": 5018,
@@ -455,12 +511,15 @@
       "F_Mutsuki",
       "F_Saya_Casual"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_18",
-    "Name": "cosplay用的圈圈眼镜",
-    "Desc": "只要戴上这个，你也是天才！\n只要戴上这副眼镜，(外表)就会变成天才。\n※ 注意 : IQ不会因为配戴这副眼镜而变高。"
+    "Name": "cosplay用旋圈眼镜",
+    "Desc": "只要戴上这个，你就能变成天才！\n......大概这眼镜有那种效果吧\n※注：戴上了也不会提高你的IQ。"
   },
   {
     "Id": 5019,
@@ -478,14 +537,18 @@
       "Mystery",
       "F_Hina",
       "F_Hanako",
-      "F_Hina_swimsuit"
+      "F_Hina_swimsuit",
+      "F_Koyuki"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_19",
-    "Name": "世界上最没用的机器",
-    "Desc": "毫无用处。可是很可爱！不过一点用都没有！但还是很可爱，没关系！适合在特别的日子赠送的玩具前5名的话题玩具。"
+    "Name": "世界上最没用的机器盒",
+    "Desc": "没有用处......但很可爱！虽然没用！但只要可爱就够了！适合在特别的日子作为礼物赠送的玩具top5之一。"
   },
   {
     "Id": 5020,
@@ -510,12 +573,15 @@
       "F_Misaki",
       "F_Wakamo_Swimsuit"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_20",
     "Name": "绑着蝴蝶结的熊娃娃",
-    "Desc": "虽然普通但却很讨喜的熊娃娃。\n在喜欢可爱小物的学生之间是非常有名的精品。"
+    "Desc": "普通但很惹人喜爱的熊娃娃。\n在喜欢可爱的东西的学生之间被认为是名厂制造的产品。"
   },
   {
     "Id": 5021,
@@ -533,12 +599,15 @@
       "Movie",
       "F_Pina"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_21",
-    "Name": "电影预售票",
-    "Desc": "&lt;意义深远的电影请和亲朋好友一起看。&gt;\n可到任何电影院使用的电影预售券，只要有一张就能两人一起看！"
+    "Name": "预售电影双人票",
+    "Desc": "「我刚好有多余的票，要跟我一起去看吗？」\n在任何电影院都能使用的双人票，哪怕对方不是恋人也可以。"
   },
   {
     "Id": 5022,
@@ -556,12 +625,15 @@
       "Art",
       "F_Juri"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_22",
     "Name": "30色颜料组合",
-    "Desc": "内含30色色彩缤纷的专业颜料套组。\n用这套颜料组合描绘全世界吧！"
+    "Desc": "内含30种不同颜色的专业颜料组合。\n买下这盒颜料，去创造一个新世界吧！"
   },
   {
     "Id": 5023,
@@ -579,12 +651,15 @@
       "PureLiterature",
       "F_Tomoe"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_23",
     "Name": "古典诗集",
-    "Desc": "古意盎然的古典诗集。\n古典文学的古雅就在你手中。"
+    "Desc": "古意盎然的古典诗集。\n给人一种「善哉！」的感觉。"
   },
   {
     "Id": 5024,
@@ -603,12 +678,15 @@
       "F_Akane",
       "F_Hiyori"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_24",
-    "Name": "可爱器皿组合",
-    "Desc": "画有可爱吉祥物动物角色的餐具组合。\n每年名列基沃托斯餐具销售前10名的传统强者。"
+    "Name": "可爱餐具组合",
+    "Desc": "印有可爱动物吉祥物的餐具组合。\n每年都进入基沃托斯餐具销售排名前10的老战士。"
   },
   {
     "Id": 5025,
@@ -626,14 +704,18 @@
       "Smart",
       "F_Yuuka",
       "F_Karin",
-      "F_Yuuka_Track"
+      "F_Yuuka_Track",
+      "F_Aris_Maid"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_25",
-    "Name": "智力开发用拼图方块",
-    "Desc": "&lt;能解开它的你才是真正的千年奇才！&gt;\n千年科学学园公认高手级魔术方块。"
+    "Name": "智力开发魔方",
+    "Desc": "「还原它你就是真正的千年人！」\n千年科学学园公认的高难魔方。"
   },
   {
     "Id": 5026,
@@ -653,12 +735,15 @@
       "F_Asuna_BunnyGirl",
       "F_Sakurako"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_26",
     "Name": "大型蛋糕",
-    "Desc": "光用看的就令人心满意足的大型蛋糕。\n卡路里标示在后方。"
+    "Desc": "只要看着仿佛就能填饱肚子的大蛋糕。\n卡路里标签贴在背面。"
   },
   {
     "Id": 5027,
@@ -677,12 +762,15 @@
       "F_Akari",
       "F_Nodoka_Onsen"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_27",
     "Name": "高级自助餐招待券",
-    "Desc": "可以享用基沃托斯第一主厨所在餐厅的高级自助餐的招待券。\n相当昂贵。"
+    "Desc": "可以在基沃托斯第一名厨所在餐厅享用高级自助餐的招待券。\n相当昂贵。"
   },
   {
     "Id": 5028,
@@ -700,12 +788,15 @@
       "CuriousFellow",
       "F_Hinata"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_28",
-    "Name": "食虫植物花盆",
-    "Desc": "少数具有独特爱好者所寻求的食虫植物花盆。\n因捕食昆虫的模样意外的可爱而大受欢迎。"
+    "Name": "食虫植物盆栽",
+    "Desc": "有独特爱好的人都会购买的食虫植物盆栽。\n捕食昆虫的样子意外的可爱......或者不可爱。"
   },
   {
     "Id": 5029,
@@ -724,12 +815,15 @@
       "F_Serika",
       "F_Serika_Newyear"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_29",
-    "Name": "看起来很贵的金箔欲望之坛",
-    "Desc": "只看一眼就觉得很贵的金箔坛。\n小心山寨品！"
+    "Name": "看上去很高级的欲望之坛",
+    "Desc": "一看就知道很高级的金箔坛。\n请注意，无法用卡片购买。"
   },
   {
     "Id": 5030,
@@ -748,12 +842,15 @@
       "F_Chinatsu_Onsen",
       "F_Nagisa"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_30",
-    "Name": "发条音乐盒",
-    "Desc": "原木演绎出高级复古感的发条音乐盒。\n在收藏家之间非常有名。"
+    "Name": "发条八音盒",
+    "Desc": "散发着难以抗拒的强烈古董感的高级发条式八音盒。\n在收藏家之间非常有名。"
   },
   {
     "Id": 5031,
@@ -777,12 +874,15 @@
       "F_Izuna_Swimsuit",
       "F_Haruna_Newyear"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_31",
     "Name": "刺绣手帕",
-    "Desc": "朴素的刺绣散发淡雅美感的手帕。"
+    "Desc": "由刺绣工艺制成的手帕。朴素的刺绣散发着纤弱之美。"
   },
   {
     "Id": 5032,
@@ -800,12 +900,15 @@
       "Specialized",
       "F_Atsuko"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_32",
-    "Name": "百科辞典",
-    "Desc": "从绑吐司袋的“那个”到装在便当里的那片“草”的名字。\n让你感到好奇的一切都在这里。"
+    "Name": "百科全书",
+    "Desc": "从用来给面包袋口打结的「那个东西」，到便当里看起来像草的「那个东西」，\n你想知道的一切都在这里。"
   },
   {
     "Id": 5033,
@@ -826,12 +929,15 @@
       "F_Shizuko_Swimsuit",
       "F_Fuuka_Newyear"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_33",
-    "Name": "健康辅助食品",
-    "Desc": "只吃一口力量就会泉涌而出！\n很适合送给重要的人的健康食品！"
+    "Name": "The·Supplement",
+    "Desc": "只要喝上一份力量就会喷涌而出！\n送给重要之人也很合适的健康食品。"
   },
   {
     "Id": 5034,
@@ -848,12 +954,15 @@
       "Swimsuit",
       "WaterPlay"
     ],
-    "SynthQuality": 20,
+    "SynthQuality": [
+      20,
+      20
+    ],
     "ExpValue": 20,
     "Shops": [],
     "Icon": "Item_Icon_Favor_34",
-    "Name": "夏天用泳圈",
-    "Desc": "夏天！大海！\n即使不太会游泳或是很会游泳，为了安全一定要备妥的玩水必需品。花俏的设计让可爱也加分！"
+    "Name": "夏忆泳圈",
+    "Desc": "夏天！大海！还有泳圈！\n如果你不会游泳——不，即使是擅长游泳你也肯定需要它，有备无患准没错。更重要的是，它那花哨的可爱设计能让穿着泳衣的女孩子看上去更可爱！"
   },
   {
     "Id": 5100,
@@ -882,7 +991,7 @@
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_0",
     "Name": "蕾丝枕头",
-    "Desc": "利用高级材质制成的蕾丝枕头。乍看之下可能很是很简单的设计，但如同它的名字，拥有着少女们的梦想。"
+    "Desc": "使用高级材料制造的蕾丝枕头。虽然设计看上去很简单，但它如同它的名称一样，承载着少女们的梦。"
   },
   {
     "Id": 5101,
@@ -897,13 +1006,15 @@
       "FavorItem",
       "CraftMaterial_FavorItemSSR",
       "Gift1",
-      "Books"
+      "Books",
+      "F_Kaho",
+      "F_Kaho2"
     ],
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_1",
-    "Name": "街头混混系列第1本",
-    "Desc": "以“对我们来说只有义气和胆识！”的台词闻名的热议话题之作，街头混混系列第1本。因为主角出乎意料地可爱的感想，所以全集都好评贩售中。"
+    "Name": "街头混混 第1卷",
+    "Desc": "以「我们只有情义和胆识！」的台词闻名的热议话题作——街头混混系列的第1卷。与外表不同的是，主角让读者感觉意外的可爱。现全系列好评出售中！"
   },
   {
     "Id": 5102,
@@ -935,8 +1046,8 @@
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_2",
-    "Name": "莎姆艾菈“THE．BEYOND”",
-    "Desc": "高级化妆品公司“Samuela”贩售的最高级香水。\n以“试着喷一次就将可爱穿上身吧”的广告标语而著名的超级无敌人气商品，为旷世天才调香师“The．Beyond”制作的Samuela12杰作之一。"
+    "Name": "莎慕艾菈「The·Beyond」",
+    "Desc": "高级化妆品制造商「莎慕艾菈」发售的最高级香水。\n以「试一试，让可爱萦绕在你身边吧」的广告词而闻名的超火爆商品，旷世天才调香师「The·Beyond」制作的莎慕艾菈十二名作之一。"
   },
   {
     "Id": 5103,
@@ -974,8 +1085,8 @@
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_3",
-    "Name": "高级蛋形工艺品",
-    "Desc": "蛋形模样的身体上镶嵌着美丽宝石并雕刻着几何图形的精巧工艺品。当然温暖地抱着它也不会孵出小鸡来。"
+    "Name": "复古蛋形工艺品",
+    "Desc": "蛋形主体部分上嵌有璀璨的宝石并印有精美几何图形的工艺品。当然，小心地孵它并不会生出小鸡来。"
   },
   {
     "Id": 5104,
@@ -1011,8 +1122,8 @@
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_4",
-    "Name": "CAFÉ．MILLE-FEUILLE的正宗百汇",
-    "Desc": "三一的有名饼干店千层咖啡厅贩售的百汇圣代。在柔软的冰淇淋上层层叠上饼干、糖浆、鲜奶油还有水果，这才是正宗的百汇圣代啊！"
+    "Name": "正宗千层芭菲",
+    "Desc": "三一的著名点心店 咖啡·千层酥 售卖的芭菲。果然在柔软的冰淇淋上层叠饼干、糖浆、鲜奶油还有水果才是正统！"
   },
   {
     "Id": 5105,
@@ -1041,13 +1152,15 @@
       "F_Ayane_Swimsuit",
       "F_Ayane_Swimsuit2",
       "F_Utaha_Cheerleader",
-      "F_Utaha_Cheerleader2"
+      "F_Utaha_Cheerleader2",
+      "F_Yuzu_Maid",
+      "F_Yuzu_Maid2"
     ],
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_5",
-    "Name": "A～BOOK RARE",
-    "Desc": "基沃托斯学生们最想拥有的电子设备TOP3中的笔记型电脑真的挺贵的。但是好想要！但果然很贵啊！"
+    "Name": "A～Book Rare",
+    "Desc": "排入了「基沃托斯学生最想要的电子产品TOP3」的著名笔记本电脑。相当奢侈的商品。好想要！但真的很贵呀！"
   },
   {
     "Id": 5106,
@@ -1076,13 +1189,15 @@
       "F_Wakamo_Swimsuit",
       "F_Wakamo_Swimsuit2",
       "F_Mari_Track",
-      "F_Mari_Track2"
+      "F_Mari_Track2",
+      "F_Aris_Maid",
+      "F_Aris_Maid2"
     ],
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_6",
     "Name": "时髦梳子",
-    "Desc": "高级感的时髦设计的携带型梳子。送礼用的人气商品。"
+    "Desc": "散发着高级感的设计时髦的便携梳子。相当受欢迎的礼物。"
   },
   {
     "Id": 5107,
@@ -1122,8 +1237,8 @@
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_7",
-    "Name": "营养满分综合维他命果冻",
-    "Desc": "含有综合维他命的营养果冻商品。果冻拥有各种水果的味道，吃起来也很有趣。要小心可能一不小心就吃完了一整桶！"
+    "Name": "富有营养的综合维生素软糖",
+    "Desc": "含有多种维生素的营养软糖。软糖有各种水果口味，享用起来是一件非常愉悦的事。请小心别吃着吃着整罐糖就见底了！"
   },
   {
     "Id": 5108,
@@ -1140,13 +1255,15 @@
       "Gift1",
       "Horticulture",
       "F_Tsubaki",
-      "F_Tsubaki2"
+      "F_Tsubaki2",
+      "F_Haruka_Newyear",
+      "F_Haruka_Newyear2"
     ],
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_8",
     "Name": "最高级枫树盆栽",
-    "Desc": "光是看着就能够让心情平静的最高级枫树盆栽。如同随着季节换衣服一样，不断变化的树叶才是有那样幽静的韵味。"
+    "Desc": "只要看着就能够让心情平静下来的最高级枫树盆栽。随四季流转而变换色彩的枫叶，营造出幽雅的意境。"
   },
   {
     "Id": 5109,
@@ -1173,13 +1290,15 @@
       "F_Hibiki_Cheerleader",
       "F_Hibiki_Cheerleader2",
       "F_Akane_BunnyGirl",
-      "F_Akane_BunnyGirl2"
+      "F_Akane_BunnyGirl2",
+      "F_Toki_BunnyGirl",
+      "F_Toki_BunnyGirl2"
     ],
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_9",
-    "Name": "针线组合",
-    "Desc": "挑选在各种情况下会需要的工具，专家专用的针线组合。只要有这个组合，不管是衣服破旧、袜子破洞都可以轻松解决！"
+    "Name": "针线包",
+    "Desc": "为了应对各种情况而挑选出必要道具的老手向针线包。有了它之后，无论是衣服破损还是袜子破洞都不在话下！"
   },
   {
     "Id": 5110,
@@ -1200,13 +1319,15 @@
       "F_Suzumi",
       "F_Suzumi2",
       "F_Haruna_Newyear",
-      "F_Haruna_Newyear2"
+      "F_Haruna_Newyear2",
+      "F_Kayoko_Newyear",
+      "F_Kayoko_Newyear2"
     ],
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_10",
     "Name": "音乐演奏会门票",
-    "Desc": "在基沃托斯定期举办的音乐演奏会的门票。从经典乐曲到最近流行的流行歌曲。对喜欢各种类型音乐的人来说是最棒的礼物。"
+    "Desc": "在基沃托斯定期举行的演奏会的门票。从古典音乐到当下的流行乐曲，对于不分种类喜欢各式音乐的人来说是再适合不过的礼物。"
   },
   {
     "Id": 5111,
@@ -1225,13 +1346,15 @@
       "F_Hanae_Holiday",
       "F_Hanae_Holiday2",
       "F_Toki",
-      "F_Toki2"
+      "F_Toki2",
+      "F_Toki_BunnyGirl",
+      "F_Toki_BunnyGirl2"
     ],
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_11",
-    "Name": "一天三次哑铃组合",
-    "Desc": "装有多个不同重量的哑铃的组合商品。一天三次。早上、中午、晚上反复进行肌力运动，打造出帅气的肌肉吧！"
+    "Name": "一日三次哑铃套装",
+    "Desc": "装有多个不同重量哑铃的套装商品。一日三次。早上、中午、晚上不断锻炼，打造出完美的肌肉吧！"
   },
   {
     "Id": 5112,
@@ -1258,13 +1381,17 @@
       "F_Momoi",
       "F_Momoi2",
       "F_Megu",
-      "F_Megu2"
+      "F_Megu2",
+      "F_Koyuki",
+      "F_Koyuki2",
+      "F_Aris_Maid",
+      "F_Aris_Maid2"
     ],
     "ExpValue": 60,
     "Shops": [],
     "Icon": "Item_Icon_Favor_Lv2_12",
-    "Name": "桌游“THE·人生”",
-    "Desc": "可以就业、中头奖、进行宇宙之旅的好玩桌游。每局游戏都有难以预料结果的轮盘和骰子，就如同我们的人生一样。"
+    "Name": "桌游「THE·人生」",
+    "Desc": "无论是就业、中奖还是太空旅行都能体验的有趣桌游。每局都有不可预知的轮盘赌和骰子，这就像人生一样啊。"
   },
   {
     "Id": 5998,
@@ -1283,7 +1410,7 @@
     "Shops": [],
     "Icon": "Item_Icon_Favor_SSR_2",
     "Name": "初音未来的写真卡",
-    "Desc": "初音未来在&lt;基沃托斯现场演唱会&gt;上发送的特制写真小卡。因为演唱会盛况空前，小卡成了凡是初音粉丝都想入手的稀有周边商品。"
+    "Desc": "在初音未来的基沃托斯演唱会发放的特制写真卡。演唱会取得了圆满成功，写真卡也成为了初音未来的粉丝们都渴求的稀有商品。"
   },
   {
     "Id": 5999,
@@ -1302,6 +1429,6 @@
     "Shops": [],
     "Icon": "Item_Icon_Favor_SSR_1",
     "Name": "闪耀花束",
-    "Desc": "用水晶制成的花束，可以送给特别的人当纪念。\n受到光线照射时，会像万花镜般闪亮。"
+    "Desc": "由水晶制成的花束，可作为纪念礼物送给特别的人。\n光照之下如万花筒般耀眼。"
   }
 ]

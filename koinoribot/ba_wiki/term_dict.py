@@ -35,4 +35,6 @@ Equipment = {"Gloves": "手套", "Bag": "包", "Watch": "手表", "Shoes": "鞋"
 
 SkillType = {"ex": 'EX技能', "normal": '基本技能', 'passive': '强化技能', 'sub': '子技能', 'weaponpassive': '强化技能+', 'gearnormal': '基本技能+(爱用品)'}
 
+BossSkillType = {"EX": 'EX技能', "Passive": "被动技能"}
+
 BattleAdaptation = {0: "D", 1: "C", 2: "B", 3: "A", 4: "S", 5: "SS"}

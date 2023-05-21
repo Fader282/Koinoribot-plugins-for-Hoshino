@@ -15,7 +15,7 @@ from ..utils import chain_reply, saveData
 
 from .get_fish import fishing, buy_bait, free_fish, sell_fish, change_fishrod, compound_bottle, getUserInfo, increase_value, decrease_value
 from .serif import cool_time_serif
-from .get_bottle import get_bottle_amount, check_bottle, format_message, check_permission, check_content, set_bottle, delete_bottle
+from .get_bottle import get_bottle_amount, check_bottle, format_message, check_permission, check_content, set_bottle, delete_bottle, add_to_blacklist, remove_from_blacklist, show_blacklist
 from .._interact import interact, ActSession
 from .evnet_functions import random_event
 
@@ -30,15 +30,17 @@ _help = '''
 <---冰祈与鱼--->
 #钓鱼帮助  🎣打开帮助菜单
 #钓鱼/#🎣  🎣开始钓鱼
-#买鱼饵 [数量(可选)]  🎣购买鱼饵
+#买鱼饵 数量(可选)  🎣购买鱼饵
 #背包/#仓库  🎣查看背包
-#卖鱼/#sell [🐟🦐🐡] [数量(可选)]  🎣出售，数量和鱼用空格隔开
-#放生/#free [🐟🦐🐡] [数量(可选)]  🎣放生，同上
+#卖鱼/#sell 🐟🦐🐡 数量(可选)  🎣出售，数量和鱼用空格隔开
+#放生/#free 🐟🦐🐡 数量(可选)  🎣放生，同上
 #钓鱼统计/#钓鱼记录  🎣查看自己的钓鱼记录
-🔮为水之心，收集3个可以合成一个漂流瓶
+🔮为水之心，收集2个可以合成一个漂流瓶
+也可以消耗两个水之心来打捞漂流瓶
 放生足够多的话可以获得特别谢礼
-#合成漂流瓶 [数量(可选)]  🎣消耗水之心合成
-#扔漂流瓶 [消息]  🎣投放一个漂流瓶
+#合成漂流瓶 数量(可选)  🎣消耗水之心合成
+#扔漂流瓶 消息(文字或图片)  🎣投放一个漂流瓶
+#捡漂流瓶  🎣打捞漂流瓶
 '''.strip()
 
 rod_help = '''
@@ -57,6 +59,8 @@ ok = get('emotion/ok.png').cqcode
 fish_list = ['🐟', '🦐', '🦀', '🐡', '🐠', '🔮', '✉', '🍙', '水之心']
 admin_path = os.path.join(userPath, 'fishing/db/admin.json')
 freq = FreqLimiter(config.COOL_TIME)
+throw_freq = FreqLimiter(config.THROW_COOL_TIME)
+get_freq = FreqLimiter(config.SALVAGE_COOL_TIME)
 
 
 @sv.on_fullmatch('#钓鱼帮助', '钓鱼帮助')
@@ -68,7 +72,7 @@ async def fishing_help(bot, ev):
     await bot.send(ev, _help)
 
 
-@sv.on_fullmatch('#钓鱼', '#🎣', '＃钓鱼')
+@sv.on_fullmatch('#钓鱼', '#🎣', '＃钓鱼', '＃🎣', '🎣', '钓鱼')
 async def go_fishing(bot, ev):
     uid = ev.user_id
     user_info = getUserInfo(uid)
@@ -88,33 +92,11 @@ async def go_fishing(bot, ev):
         msg = resp['msg']
         await bot.send(ev, msg, at_sender=True)
         return
-    elif resp['code'] == 2:  # 漂流瓶模式
-        bottle_amount = get_bottle_amount()
-        second_choose = random.randint(1, 1000)
-        probability = min(float(bottle_amount / 50), 0.7) * 1000
-        if second_choose > probability:
-            fish = fish_list[5]
-            increase_value(uid, 'fish', fish, 1)
-            await bot.send(ev, f'你发现鱼竿有着异于平常的感觉，竟然钓到了一颗水之心🔮~', at_sender=True)
-            return
-        else:
-            bottle = check_bottle()
-            if config.DEBUG_MODE:
-                hoshino.logger.info(f'漂流瓶内容：{bottle}')
-            if bottle is None:
-                fish = fish_list[5]
-                increase_value(uid, 'fish', fish, 1)
-                hoshino.logger.error(f'漂流瓶为空，将替换为水之心')
-                await bot.send(ev, f'钓到了一颗水之心🔮~', at_sender=True)
-                return
-            try:
-                await bot.send(ev, f'你的鱼钩碰到了什么，看起来好像是一个漂流瓶！', at_sender=True)
-                content = await format_message(bot, ev, bottle)
-                await bot.send_group_forward_msg(group_id=ev.group_id, messages=content)
-            except ActionFailed:
-                increase_value(uid, 'fish', '✉', 1)
-                await bot.send(ev, f'你的鱼钩碰到了一个空漂流瓶，似乎还可以回收使用！(漂流瓶+1)')
-            return
+    elif resp['code'] == 2:  # 漂流瓶模式 (2023.5.18 将不会再钓上漂流瓶，仅能通过水之心捡起)
+        fish = fish_list[5]
+        increase_value(uid, 'fish', fish, 1)
+        await bot.send(ev, f'你发现鱼竿有着异于平常的感觉，竟然钓到了一颗水之心🔮~', at_sender=True)
+        return
     elif resp['code'] == 3:  # 随机事件模式
         choose_ev = random.choice(event_list)
         hoshino.logger.info(choose_ev) if config.DEBUG_MODE else None
@@ -208,14 +190,14 @@ async def free_func(bot, ev):
     fish = ''
     num = 0
     if len(msg_split) == 2:
-        if msg_split[0] not in ['🍙', '🐟', '🦐', '🦀', '🐡', '🐠', '🔮']:
+        if msg_split[0] not in ['🍙', '🐟', '🦐', '🦀', '🐡', '🐠']:
             return
         if not str.isdigit(msg_split[-1]):
             return
         fish = msg_split[0]
         num = int(msg_split[-1])
     elif len(msg_split) == 1:
-        if msg_split[0] not in ['🍙', '🐟', '🦐', '🦀', '🐡', '🐠', '🔮']:
+        if msg_split[0] not in ['🍙', '🐟', '🦐', '🦀', '🐡', '🐠']:
             return
         fish = msg_split[0]
         num = 1
@@ -261,6 +243,9 @@ async def driftbottle_throw(bot, ev):
     if not user_info['fish']['✉']:
         await bot.send(ev, '背包里没有漂流瓶喔' + no)
         return
+    if not throw_freq.check(uid) and not config.DEBUG_MODE:
+        await bot.send(ev, '冰祈正在投放您的漂流瓶，休息一会再来吧~' + f'({int(throw_freq.left_time(uid))}s)')
+        return
     resp = check_content(message)
     if resp['code']<0:
         await bot.send(ev, resp['reason'])
@@ -269,6 +254,7 @@ async def driftbottle_throw(bot, ev):
     _time = ev.time
     decrease_value(uid, 'fish', '✉', 1)
     resp = set_bottle(uid, gid, _time, message)
+    throw_freq.start_cd(uid)
     await bot.send(ev, '你将漂流瓶放入了水中，目送它漂向诗与远方...')
     chain = []
     await chain_reply(bot, ev, user_id=uid, chain=chain,msg=
@@ -277,18 +263,33 @@ async def driftbottle_throw(bot, ev):
     await bot.send_group_forward_msg(group_id=config.ADMIN_GROUP, messages=chain)
 
 
+
 @sv.on_fullmatch('#捡漂流瓶', '#捞漂流瓶', '＃捡漂流瓶')  # 仅做测试用
 async def driftbottle_get(bot, ev):
     gid = ev.group_id
     uid = ev.user_id
-    if int(uid) not in SUPERUSERS:
+    '''if int(uid) not in SUPERUSERS:
+        return'''
+    user_info = getUserInfo(uid)
+    if user_info['fish']['🔮'] < 2:
+        await bot.send(ev, '捡漂流瓶需要两个水之心喔' + no)
         return
-    bottle = check_bottle()
+    bottle_amount = get_bottle_amount()
+    if bottle_amount < 5:
+        await bot.send(ev, f'漂流瓶太少了({bottle_amount}/5个)' + no)
+        return
+    if not get_freq.check(uid) and not config.DEBUG_MODE:
+        await bot.send(ev, '漂流瓶累了，需要休息一会QAQ' + f'({int(get_freq.left_time(uid))}s)')
+        return
+    bottle, bottle_id = check_bottle()
     if not bottle:
-        await bot.send(ev, '没有漂流瓶可以捞')
+        await bot.send(ev, '没有漂流瓶可以捞喔...')
         return
-    content = await format_message(bot, ev, bottle)
+    await bot.send(ev, '你开始打捞漂流瓶...(🔮-2)')
+    content = await format_message(bot, ev, bottle, bottle_id)
     await bot.send_group_forward_msg(group_id=ev.group_id, messages=content)
+    get_freq.start_cd(uid)
+    decrease_value(uid, 'fish', '🔮', 2)
 
 
 @sv.on_prefix('#合成漂流瓶', '＃合成漂流瓶')
@@ -302,6 +303,53 @@ async def driftbottle_compound(bot, ev):
     user_info = getUserInfo(uid)
     result = compound_bottle(uid, amount)
     await bot.send(ev, result['msg'])
+
+
+@sv.on_prefix('#ban')
+async def driftbottle_ban(bot, ev):
+    uid = ev.user_id
+    if int(uid) not in SUPERUSERS:
+        return
+    message = ev.message.extract_plain_text().strip()
+    if not message:
+        return
+    id_n_time = message.split()
+    if len(id_n_time) == 1:
+        ban_id = id_n_time[0]
+        if not str.isdigit(ban_id):
+            if ban_id == 'list':
+                msg = show_blacklist()
+                await bot.send(ev, msg)
+            else:
+                await bot.send(ev, 'QQ号不对，不能这样做')
+            return
+        resp = add_to_blacklist(ban_id)
+        await bot.send(ev, resp)
+    elif len(id_n_time) == 2:
+        ban_id = id_n_time[0]
+        ban_time = id_n_time[1]
+        if not str.isdigit(ban_id):
+            await bot.send(ev, 'QQ号不对，不能这样做')
+            return
+        if not str.isdigit(ban_time):
+            await bot.send(ev, '禁言时长不对，不能这样做')
+            return
+        resp = add_to_blacklist(ban_id, ban_time)
+        await bot.send(ev, resp)
+    else:
+        await bot.send(ev, '用法:#ban QQ号 时长')
+
+
+@sv.on_prefix('#unban')
+async def driftbottle_unban(bot, ev):
+    uid = ev.user_id
+    if int(uid) not in SUPERUSERS:
+        return
+    message = ev.message.extract_plain_text().strip()
+    if not (message and str.isdigit(message)):
+        return
+    resp = remove_from_blacklist(message)
+    await bot.send(ev, resp)
 
 
 @sv.on_prefix('#删除')
@@ -337,9 +385,8 @@ async def driftbottle_count(bot, ev):
     await bot.send(ev, f'当前一共有{get_bottle_amount()}个漂流瓶~')
 
 
-@sv.on_prefix('#add')
+# @sv.on_prefix('#add')
 async def add_items(bot, ev):
-    return
     message = ev.message.extract_plain_text().strip()
     uid = ev.user_id
     if uid not in SUPERUSERS:

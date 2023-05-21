@@ -5,11 +5,21 @@ import re
 from PIL import Image
 
 import hoshino
-from ..build_image import BuildImage
 
-from .term_dict import *
-from .util import *
-from .._R import imgPath
+try:
+    from ..build_image import BuildImage
+
+    from .term_dict import *
+    from .util import *
+    from .._R import imgPath
+except:
+    import sys
+    sys.path.append('../../koinoribot/')
+    from build_image import BuildImage
+
+    from term_dict import *
+    from util import *
+    from _R import imgPath
 
 proxies = {'http': 'http://127.0.0.1:7890'}
 
@@ -26,6 +36,8 @@ localization_jp_url = "https://lonqie.github.io/SchaleDB/data/jp/localization.js
 items_url = "https://lonqie.github.io/SchaleDB/data/cn/items.json"
 furniture_url = "https://lonqie.github.io/SchaleDB/data/cn/furniture.json"
 common_url = "https://lonqie.github.io/SchaleDB/data/common.json"
+raids_url = "https://lonqie.github.io/SchaleDB/data/cn/raids.json"
+enemies_url = "https://lonqie.github.io/SchaleDB/data/cn/enemies.json"
 
 font_color_white = (255, 255, 255)
 font_color_black = (0, 0, 0)
@@ -33,6 +45,8 @@ font_SC_Bold = 'NotoSansSC-Bold.otf'
 font_SC = 'NotoSansSC-Medium.otf'
 font_heiti = 'simhei2.ttf'
 font_rothorn = 'extra-bold-italia.ttf'
+
+mark_color = (255, 255, 255, 30)
 
 localization_data = {}
 debug_mode = 0
@@ -77,6 +91,20 @@ def update_db():
             print('中文翻译数据拉取成功')
     else:
         print('中文翻译数据拉取失败')
+    archive = get_json_data(raids_url)
+    if archive:
+        with open(os.path.join(database_path, 'raids.json'), 'w', encoding='utf-8') as f:
+            f.truncate(0)
+            json.dump(archive, f, ensure_ascii=False, indent=2)
+            print('总力战boss数据拉取成功')
+    else:
+        print('总力战boss数据拉取失败')
+    archive = get_json_data(enemies_url)
+    if archive:
+        with open(os.path.join(database_path, 'enemies.json'), 'w', encoding='utf-8') as f:
+            f.truncate(0)
+            json.dump(archive, f, ensure_ascii=False, indent=2)
+            print('敌人数据拉取成功')
     archive = get_json_data(localization_jp_url)
     if archive:
         with open(os.path.join(database_path, 'localizationJP.json'), 'w', encoding='utf-8') as f:
@@ -225,7 +253,7 @@ def image_exist_check(file_path, url):
     """
     if not os.path.exists(file_path):
         hoshino.logger.info('downloading request image...')
-        resp = requests.get(url = url, headers=headers).content
+        resp = requests.get(url = url, headers=headers, proxies=proxies).content
         with open(file_path, 'wb') as f:
             f.write(resp)
 
@@ -258,9 +286,11 @@ def get_student_info(student_id):
     age = base_info['CharacterAge']
     birthday = base_info['Birthday']
     hobby = base_info['Hobby']
+    if '\n' in hobby:
+        hobby.replace('\n', '')
     height = base_info['CharHeightMetric']
     cv = base_info['CharacterVoice']
-    illustor = base_info['ArtistName']
+    illustor = base_info['Illustrator'] + '/' + base_info['Designer'] if base_info['Illustrator'] != base_info['Designer'] else base_info['Illustrator'] # 插画与设计
     introduction = f"学生介绍：\n{base_info['ProfileIntroduction']}\n\n招募台词：\n{base_info['CharacterSSRNew']}"
     memoryLobby = base_info['MemoryLobby'][0]
     memoryLobbyBGM = base_info['MemoryLobbyBGM']
@@ -435,7 +465,20 @@ def get_student_info(student_id):
         i += 1
     i = 0
     for info in right_text_to_paste_list:
-        info_text = BuildImage(0, 0, plain_text = str(info), font_size = 25, font = font_SC, font_color = font_color_white)
+        info_split = ''
+        if background.getsize(info)[0] > 270:
+            info_split += info[12:]
+            info = info[:12] + '\n'
+            info += info_split
+            pos_shift_x = 40
+            pos_shift_y = -10
+            info_text = BuildImage(0, 0, background = baImgPath + '/source/cardsrc/blank.png', font_size = 20, font = font_SC, font_color = font_color_white)
+            info_text.text((0, 0), info, font_color_white)
+        else:
+            pos_shift_x = 0
+            pos_shift_y = 0
+            info_text = BuildImage(0, 0, plain_text = str(info), font_size = 25, font = font_SC, font_color = font_color_white)
+        # info_text = BuildImage(0, 0, plain_text = str(info), font_size = 25, font = font_SC, font_color = font_color_white)
         right_bottom_template.paste(img = info_text, pos = (775 - info_text.w, 14 + i * 66), alpha = True)
         i += 1
 
@@ -504,6 +547,15 @@ def get_student_info(student_id):
         right_bottom_template.paste(img = lobby_archive_icon, pos = (502 + pos[0] * (1-fnt_icon_shift_flag), 633), alpha = True)
         right_bottom_template.paste(img = love_icon, pos = (636 + pos[0] * (1-fnt_icon_shift_flag), 731), alpha = True)
     background.paste(img = right_bottom_template, pos = (1199, 696), alpha = True)
+
+    # 最后水印
+    mark_path = baImgPath + f"/source/cardsrc/markdown.png"
+    mark_ds_path = baImgPath + f"/source/cardsrc/mark_datasource.png"
+    mark_text = BuildImage(0, 0, background = mark_path)
+    mark_ds_text = BuildImage(0, 0, background = mark_ds_path)
+    background.paste(mark_text, (int(background.w - mark_text.w), int(background.h - mark_text.h)), alpha=True)
+    background.paste(mark_ds_text, (0, int(background.h - mark_text.h)), alpha=True)
+
     #background.resize(ratio = 0.75)
     imageToSend = f"[CQ:image,file=base64://{background.pic2bs4()}]"
 
@@ -739,6 +791,15 @@ def get_skill_info(student_id):
     global debug_mode
     if debug_mode:
         background.save(os.path.join(baImgPath, 'skill_card.png'))
+
+    # 最后水印
+    mark_path = baImgPath + f"/source/cardsrc/markdown.png"
+    mark_ds_path = baImgPath + f"/source/cardsrc/mark_datasource.png"
+    mark_text = BuildImage(0, 0, background = mark_path)
+    mark_ds_text = BuildImage(0, 0, background = mark_ds_path)
+    background.paste(mark_text, (int(background.w - mark_text.w), int(background.h - mark_text.h)), alpha=True)
+    background.paste(mark_ds_text, (0, int(background.h - mark_text.h)), alpha=True)
+
     # background.resize(ratio = 0.75)
     imageToSend = f"[CQ:image,file=base64://{background.pic2bs4()}]"
     weapon_desc = f'武器描述:\n{weaponDesc}'
@@ -870,6 +931,14 @@ def get_material_info(student_id):
     if debug_mode:
         background.save(os.path.join(baImgPath, 'material_card.png'))
 
+    # 最后水印
+    mark_path = baImgPath + f"/source/cardsrc/markdown.png"
+    mark_ds_path = baImgPath + f"/source/cardsrc/mark_datasource.png"
+    mark_text = BuildImage(0, 0, background = mark_path)
+    mark_ds_text = BuildImage(0, 0, background = mark_ds_path)
+    background.paste(mark_text, (int(background.w - mark_text.w), int(background.h - mark_text.h)), alpha=True)
+    background.paste(mark_ds_text, (0, int(background.h - mark_text.h)), alpha=True)
+
     background.resize(ratio=0.75)
     imageToSend = f"[CQ:image,file=base64://{background.pic2bs4()}]"
 
@@ -879,10 +948,10 @@ def get_material_info(student_id):
 if __name__ == '__main__':
     debug_mode = 1
     update_db()
-    #student_id = get_student_id('幼瞬')
-    #print(student_id)
-    #get_student_info(student_id)
-    #get_skill_info(student_id)
-    #get_material_info('水大叔')
+    # student_id = get_student_id('幼瞬')
+    # print(student_id)
+    # get_student_info(student_id)
+    # get_skill_info(student_id)
+    # get_material_info('水大叔')
     # get_skill_info('若藻')
     # get_skill_info('阿露(正月)')

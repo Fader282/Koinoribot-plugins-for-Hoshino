@@ -7,6 +7,8 @@ import asyncio
 import base64
 from matplotlib import pyplot as plt
 
+# https://www.osgeo.cn/pillow
+
 FONT_PATH = os.path.join(os.path.dirname(__file__), "src/fonts")
 
 '''
@@ -125,10 +127,10 @@ class BuildImage:
         ratio: float = 1,
         is_alpha: bool = False,
         plain_text: Optional[str] = None,
+        multiline_text: Optional[str] = None,
         font_color: Optional[Union[str, Tuple[int, int, int]]] = None,
-        border: Optional[int] = None,
-        border_color: Optional[Union[str, Tuple[int, int, int]]] = None,
-        is_bold: bool = False,
+        stroke_width: int = 0,
+        stroke_fill: Union[Tuple[int, int, int, int], Tuple[int, int, int]] = (0, 0, 0, 0),
     ):
         """
         参数：
@@ -143,11 +145,12 @@ class BuildImage:
             :param font: 字体，默认在 resource/ttf/ 路径下
             :param ratio: 倍率压缩
             :param is_alpha: 是否背景透明
-            :param plain_text: 纯文字文本
-            :param border: 文本是否添加描边，不填则默认无边框，如有需要则推荐填1或2 (魔改)
-            :param border_color: 文本描边颜色 (魔改)
-            :param is_bold: 文本是否加粗 (魔改)
+            :param plain_text: 纯文字文字
+            :param multiline_text: 多行文字
+            :param stroke_width: 为文字描边 (魔改)
+            :param stroke_fill: 描边的颜色填充 (魔改)
         """
+        self.multi_textsize = None  # 测量多行文本得到的长宽
         self.w = int(w)
         self.h = int(h)
         self.paste_image_width = int(paste_image_width)
@@ -163,16 +166,25 @@ class BuildImage:
                 if not color:
                     color = (255, 255, 255, 0)
                 ttf_w, ttf_h = self.getsize(plain_text)
-                if border:
-                    self.w = self.w if self.w > ttf_w + border * 2 else ttf_w + border * 2
-                    self.h = self.h if self.h > ttf_h + border * 2 else ttf_h + border * 2
-                else:
-                    self.w = self.w if self.w > ttf_w else ttf_w
-                    self.h = self.h if self.h > ttf_h else ttf_h
-                if is_bold:
-                    self.w += 1
+                self.w = self.w if self.w > ttf_w else ttf_w
+                self.h = self.h if self.h > ttf_h else ttf_h
+                if stroke_width:
+                    self.w = self.w + stroke_width * 2
+                    self.h = self.h + stroke_width * 2
+            elif multiline_text:
+                if not color:
+                    color = (255, 255, 255, 0)
+                ttf_w, ttf_h = self.getsize_multiline(multiline_text)
+                self.w = self.w if self.w > ttf_w else ttf_w
+                self.h = self.h if self.h > ttf_h else ttf_h
+                if stroke_width:
+                    self.w = self.w + stroke_width * 2
+                    self.h = self.h + stroke_width * 2
+                self.h += 4
             self.markImg = Image.new(image_mode, (self.w, self.h), color)
             self.markImg.convert(image_mode)
+
+
         else:
             if not w and not h:
                 self.markImg = Image.open(background)
@@ -205,24 +217,10 @@ class BuildImage:
         self.size = self.w, self.h
         if plain_text:
             fill = font_color if font_color else (0, 0, 0)
-            if border:
-                shadowfill = border_color if border_color else (245, 245, 247)
-                self.text((0, border), plain_text, fill=shadowfill)
-                self.text((border * 2, border), plain_text, fill=shadowfill)
-                self.text((border, 0), plain_text, fill=shadowfill)
-                self.text((border, border * 2), plain_text, fill=shadowfill)
-                self.text((0, 0), plain_text, fill=shadowfill)
-                self.text((border * 2, 0), plain_text, fill=shadowfill)
-                self.text((0, border * 2), plain_text, fill=shadowfill)
-                self.text((border * 2, border * 2), plain_text, fill=shadowfill)
-                if is_bold:
-                    self.text((border * 2 + 1, border), plain_text, fill=shadowfill)
-                    self.text((border * 2 + 1, 0), plain_text, fill=shadowfill)
-                    self.text((border * 2 + 1, border * 2), plain_text, fill=shadowfill)
-                    self.text((border + 1, border), plain_text, fill=fill)
-                self.text((border, border), plain_text, fill=fill)
-            else:
-                self.text((0, 0), plain_text, fill)
+            self.text((0 + stroke_width, 0), plain_text, fill, stroke_fill=stroke_fill, stroke_width=stroke_width)
+        elif multiline_text:
+            fill = font_color if font_color else (0, 0, 0)
+            self.multiline_text((0, 0), multiline_text, fill)
 
         try:
             self.loop = asyncio.get_event_loop()
@@ -309,6 +307,17 @@ class BuildImage:
         """
         return self.font.getsize(msg)
 
+
+    def getsize_multiline(self, msg: str) -> Tuple[int, int]:
+        """
+        说明：
+            获取多行文本在该图片 font_size 下需要的空间
+        参数：
+            :param msg: 文字内容
+        """
+        return self.font.getsize_multiline(msg)
+
+
     async def apoint(
         self, pos: Tuple[int, int], fill: Optional[Tuple[int, int, int]] = None
     ):
@@ -391,21 +400,25 @@ class BuildImage:
         text: str,
         fill: Union[str, Tuple[int, int, int]] = (0, 0, 0),
         center_type: Optional[Literal["center", "by_height", "by_width"]] = None,
-        border: Optional[int] = None,
-        border_color: Optional[Union[str, Tuple[int, int, int]]] = None,
-        is_bold: bool = False,
+
+        stroke_width: int = 0,
+        stroke_fill: Union[Tuple[int, int, int, int], Tuple[int, int, int]] = (0, 0, 0, 0),
+        align: Literal["left", "center", "right"] = 'left',
+        anchor: str = None,
+
     ):
         """
         说明：
-            在图片上添加文字
+            在图片上添加文字(单行)
         参数：
             :param pos: 文字位置
             :param text: 文字内容
             :param fill: 文字颜色
-            :param border: 文字描边粗细，不填则没有 (魔改)
-            :param border_color: 文字描边颜色，默认纯白 (魔改)
-            :param is_bold: 文字是否加粗 (魔改)
+            :param anchor: 文字对齐方式，详见：https://pillow.readthedocs.io/en/stable/handbook/text-anchors.html#text-anchors
             :param center_type: 居中类型，可能的值 center: 完全居中，by_width: 水平居中，by_height: 垂直居中
+            :param stroke_width: 描边粗细
+            :param stroke_fill: 描边填充
+            :param align: 对齐方式
         """
         if center_type:
             if center_type not in ["center", "by_height", "by_width"]:
@@ -424,24 +437,82 @@ class BuildImage:
                 h = int((h - ttf_h) / 2)
                 w = pos[0]
             pos = (w, h)
-        if border:
-            shadowfill = border_color if border_color else (245, 245, 247)
-            self.draw.text((pos[0]-border, pos[1]), text, fill=shadowfill, font=self.font)
-            self.draw.text((pos[0], pos[1]+border), text, fill=shadowfill, font=self.font)
-            self.draw.text((pos[0], pos[1]-border), text, fill=shadowfill, font=self.font)
-            self.draw.text((pos[0]-border, pos[1]-border), text, fill=shadowfill, font=self.font)
-            self.draw.text((pos[0]+border, pos[1]-border), text, fill=shadowfill, font=self.font)
-            self.draw.text((pos[0]-border, pos[1]+border), text, fill=shadowfill, font=self.font)
-            self.draw.text((pos[0]+border, pos[1]+border), text, fill=shadowfill, font=self.font)
-            if is_bold:
-                self.draw.text((pos[0]+border+1, pos[1]), text, fill=shadowfill, font=self.font)
-                self.draw.text((pos[0]+border+1, pos[1]-border), text, fill=shadowfill, font=self.font)
-                self.draw.text((pos[0]+border+1, pos[1]+border), text, fill=shadowfill, font=self.font)
-            else:
-                self.draw.text((pos[0], pos[1]-border), text, fill=shadowfill, font=self.font)
-        if is_bold:
-            self.draw.text((pos[0]+1, pos[1]), text, fill=fill, font=self.font)
-        self.draw.text(pos, text, fill=fill, font=self.font)
+        self.draw.text(pos, text, fill=fill, font=self.font, stroke_fill=stroke_fill, stroke_width=stroke_width, align=align, anchor=anchor)
+
+
+    def multiline_text(
+        self,
+        pos: Union[Tuple[int, int], Tuple[float, float]],
+        text: str,
+        fill: Union[str, Tuple[int, int, int]] = (0, 0, 0),
+        center_type: Optional[Literal["center", "by_height", "by_width"]] = None,
+
+        stroke_width: int = 0,
+        stroke_fill: Union[Tuple[int, int, int, int], Tuple[int, int, int]] = (0, 0, 0, 0),
+        align: Literal["left", "center", "right"] = 'left',
+        anchor: str = None,
+
+    ):
+        """
+        说明：
+            在图片上添加文字(多行)
+        参数：
+            :param pos: 文字位置
+            :param text: 文字内容
+            :param fill: 文字颜色
+            :param anchor: 文字对齐方式，详见：https://pillow.readthedocs.io/en/stable/handbook/text-anchors.html#text-anchors
+            :param center_type: 居中类型，可能的值 center: 完全居中，by_width: 水平居中，by_height: 垂直居中
+            :param stroke_width: 描边粗细
+            :param stroke_fill: 描边填充
+            :param align: 对齐方式
+        """
+        if center_type:
+            if center_type not in ["center", "by_height", "by_width"]:
+                raise ValueError(
+                    "center_type must be 'center', 'by_width' or 'by_height'"
+                )
+            w, h = self.w, self.h
+            ttf_w, ttf_h = self.getsize_multiline(text)
+            if center_type == "center":
+                w = int((w - ttf_w) / 2)
+                h = int((h - ttf_h) / 2)
+            elif center_type == "by_width":
+                w = int((w - ttf_w) / 2)
+                h = pos[1]
+            elif center_type == "by_height":
+                h = int((h - ttf_h) / 2)
+                w = pos[0]
+            pos = (w, h)
+        self.draw.multiline_text(pos, text, fill=fill, font=self.font, stroke_fill=stroke_fill, stroke_width=stroke_width, align=align, anchor=anchor)
+
+
+    def get_multi_size(
+        self,
+        pos: Union[Tuple[int, int], Tuple[float, float]],
+        text: str,
+        center_type: Optional[Literal["center", "by_height", "by_width"]] = None,
+
+        stroke_width: int = 0,
+        align: Literal["left", "center", "right"] = 'left',
+        anchor: str = None,
+        spacing: int = 4,
+    ):
+        """
+            pos -- 文本的锚点坐标。
+            text -- 要测量的文本。
+            font -- A FreeTypeFont 实例。
+            anchor -- 文本锚点对齐方式。确定锚点相对于文本的相对位置。默认对齐方式为左上角。看见 文本锚点 有效值。对于非TrueType字体，此参数将被忽略。
+            spacing -- 行与行之间的像素数。
+            align -- "left" ， "center" 或 "right" 。确定线条的相对对齐方式。使用 anchor 参数指定对齐方式。 xy 。
+            direction -- 文本的方向。它可以 "rtl" （从右到左）， "ltr" （从左到右）或 "ttb" （从上到下）。需要QMLibra。【无】
+            features -- 文本布局期间使用的OpenType字体功能的列表。例如，这通常用于打开默认情况下未启用的可选字体功能 "dlig" 或 "ss01" ，但也可以用于关闭默认字体功能，例如 "-liga" 禁用连字或 "-kern" 禁用字距调整。要获取所有支持的功能，请参阅 OpenType docs . 需要QMLibra。【无】
+            language -- 文本的语言。不同的语言可以使用不同的字形或连字。此参数告诉文本使用哪种语言的字体，并根据需要应用正确的替换（如果可用）。应该是一个 BCP 47 language code . 需要QMLibra。【无】
+            stroke_width -- 文本笔划的宽度。
+            embedded_color -- 是否使用字体嵌入颜色字形(COLR、CBDT、SBIX)。【无】
+        """
+        text_bbox = self.draw.multiline_textbbox(pos, text, font=self.font, stroke_width=stroke_width, align=align, anchor=anchor, spacing=spacing)
+        self.multi_textsize = (text_bbox[2] - text_bbox[0], text_bbox[3] - text_bbox[1])
+        return self.multi_textsize
 
     async def asave(self, path: Optional[Union[str, Path]] = None):
         """

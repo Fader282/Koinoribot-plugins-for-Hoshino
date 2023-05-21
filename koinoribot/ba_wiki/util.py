@@ -2,7 +2,8 @@ import os
 
 import requests
 import ujson
-from ..config import proxies
+
+proxies = {'http': 'http://127.0.0.1:7890'}
 
 headers = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -29,7 +30,7 @@ def get_json_data(url):
     """
     for i in range(3):
         try:
-            res = requests.get(url, timeout=15, headers=headers, proxies=proxies)
+            res = requests.get(url, headers=headers, proxies=proxies)
             if res.status_code == 200:
                 return res.json()
         except Exception as e:

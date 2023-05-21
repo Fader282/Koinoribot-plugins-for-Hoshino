@@ -101,10 +101,6 @@
     },
     {
       "Id": 10100,
-      "Icon": "Item_Icon_Material_Random_0",
-      "NameEn": "Random Beginner Artifact (Bounty)",
-      "NameJp": "",
-      "Rarity": "N",
       "ItemList": [
         [
           100,
@@ -170,10 +166,6 @@
     },
     {
       "Id": 10101,
-      "Icon": "Item_Icon_Material_Random_1",
-      "NameEn": "Random Normal Artifact (Bounty)",
-      "NameJp": "",
-      "Rarity": "R",
       "ItemList": [
         [
           101,
@@ -239,10 +231,6 @@
     },
     {
       "Id": 10102,
-      "Icon": "Item_Icon_Material_Random_2",
-      "NameEn": "Random Advanced Artifact (Bounty)",
-      "NameJp": "",
-      "Rarity": "SR",
       "ItemList": [
         [
           102,
@@ -308,10 +296,6 @@
     },
     {
       "Id": 10103,
-      "Icon": "Item_Icon_Material_Random_3",
-      "NameEn": "Random Superior Artifact (Bounty)",
-      "NameJp": "",
-      "Rarity": "SSR",
       "ItemList": [
         [
           103,
@@ -364,6 +348,354 @@
         [
           183,
           1,
+          1,
+          1
+        ],
+        [
+          193,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10110,
+      "ItemList": [
+        [
+          100,
+          3,
+          1,
+          1
+        ],
+        [
+          130,
+          3,
+          1,
+          1
+        ],
+        [
+          160,
+          3,
+          1,
+          1
+        ],
+        [
+          190,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10111,
+      "ItemList": [
+        [
+          101,
+          3,
+          1,
+          1
+        ],
+        [
+          131,
+          3,
+          1,
+          1
+        ],
+        [
+          161,
+          3,
+          1,
+          1
+        ],
+        [
+          191,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10112,
+      "ItemList": [
+        [
+          102,
+          3,
+          1,
+          1
+        ],
+        [
+          132,
+          3,
+          1,
+          1
+        ],
+        [
+          162,
+          3,
+          1,
+          1
+        ],
+        [
+          192,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10113,
+      "ItemList": [
+        [
+          103,
+          3,
+          1,
+          1
+        ],
+        [
+          133,
+          3,
+          1,
+          1
+        ],
+        [
+          163,
+          3,
+          1,
+          1
+        ],
+        [
+          193,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10114,
+      "ItemList": [
+        [
+          110,
+          3,
+          1,
+          1
+        ],
+        [
+          140,
+          3,
+          1,
+          1
+        ],
+        [
+          170,
+          3,
+          1,
+          1
+        ],
+        [
+          190,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10115,
+      "ItemList": [
+        [
+          111,
+          3,
+          1,
+          1
+        ],
+        [
+          141,
+          3,
+          1,
+          1
+        ],
+        [
+          171,
+          3,
+          1,
+          1
+        ],
+        [
+          191,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10116,
+      "ItemList": [
+        [
+          112,
+          3,
+          1,
+          1
+        ],
+        [
+          142,
+          3,
+          1,
+          1
+        ],
+        [
+          172,
+          3,
+          1,
+          1
+        ],
+        [
+          192,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10117,
+      "ItemList": [
+        [
+          113,
+          3,
+          1,
+          1
+        ],
+        [
+          143,
+          3,
+          1,
+          1
+        ],
+        [
+          173,
+          3,
+          1,
+          1
+        ],
+        [
+          193,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10118,
+      "ItemList": [
+        [
+          120,
+          3,
+          1,
+          1
+        ],
+        [
+          150,
+          3,
+          1,
+          1
+        ],
+        [
+          180,
+          3,
+          1,
+          1
+        ],
+        [
+          190,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10119,
+      "ItemList": [
+        [
+          121,
+          3,
+          1,
+          1
+        ],
+        [
+          151,
+          3,
+          1,
+          1
+        ],
+        [
+          181,
+          3,
+          1,
+          1
+        ],
+        [
+          191,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10120,
+      "ItemList": [
+        [
+          122,
+          3,
+          1,
+          1
+        ],
+        [
+          152,
+          3,
+          1,
+          1
+        ],
+        [
+          182,
+          3,
+          1,
+          1
+        ],
+        [
+          192,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 10121,
+      "ItemList": [
+        [
+          123,
+          3,
+          1,
+          1
+        ],
+        [
+          153,
+          3,
+          1,
+          1
+        ],
+        [
+          183,
+          3,
           1,
           1
         ],
@@ -1361,6 +1693,159 @@
           1
         ]
       ]
+    },
+    {
+      "Id": 601005,
+      "ItemList": [
+        [
+          2101004,
+          1,
+          1,
+          1
+        ],
+        [
+          2101005,
+          2,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 602005,
+      "ItemList": [
+        [
+          2102004,
+          1,
+          1,
+          1
+        ],
+        [
+          2102005,
+          2,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 603005,
+      "ItemList": [
+        [
+          2103004,
+          1,
+          1,
+          1
+        ],
+        [
+          2103005,
+          2,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 604005,
+      "ItemList": [
+        [
+          2104004,
+          1,
+          1,
+          1
+        ],
+        [
+          2104005,
+          2,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 605005,
+      "ItemList": [
+        [
+          2105004,
+          1,
+          1,
+          1
+        ],
+        [
+          2105005,
+          2,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 606005,
+      "ItemList": [
+        [
+          2106004,
+          1,
+          1,
+          1
+        ],
+        [
+          2106005,
+          2,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 607005,
+      "ItemList": [
+        [
+          2107004,
+          1,
+          1,
+          1
+        ],
+        [
+          2107005,
+          2,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 608005,
+      "ItemList": [
+        [
+          2108004,
+          1,
+          1,
+          1
+        ],
+        [
+          2108005,
+          2,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "Id": 609005,
+      "ItemList": [
+        [
+          2109004,
+          1,
+          1,
+          1
+        ],
+        [
+          2109005,
+          2,
+          1,
+          1
+        ]
+      ]
     }
   ],
   "regions": [
@@ -1369,10 +1854,10 @@
       "studentlevel_max": 85,
       "weaponlevel_max": 50,
       "bondlevel_max": 50,
-      "gear1_max": 7,
-      "gear2_max": 7,
+      "gear1_max": 8,
+      "gear2_max": 8,
       "gear3_max": 7,
-      "campaign_max": 21,
+      "campaign_max": 22,
       "events": [
         801,
         802,
@@ -1393,8 +1878,9 @@
         818,
         819,
         820,
-        821,
         822,
+        824,
+        825,
         701,
         10801,
         10802,
@@ -1403,9 +1889,11 @@
         10805,
         10806,
         10808,
+        10809,
         10810,
         10811,
-        10812
+        10812,
+        10813
       ],
       "event_701_max": 10,
       "event_701_challenge_max": 4,
@@ -1415,43 +1903,43 @@
       "current_gacha": [
         {
           "characters": [
-            10062,
-            20024
+            10066,
+            10067
           ],
-          "start": 1677031200,
-          "end": 1678240800
+          "start": 1682474400,
+          "end": 1683684000
         }
       ],
       "current_events": [
         {
-          "event": 822,
-          "start": 1677031200,
-          "end": 1678240800
+          "event": 825,
+          "start": 1682474400,
+          "end": 1683684000
         }
       ],
       "current_raid": [
         {
-          "raid": 4,
+          "raid": 3,
           "terrain": "Street",
-          "start": 1677636000,
-          "end": 1678215600
+          "start": 1683079200,
+          "end": 1683658800
         },
         {
-          "raid": 13000,
-          "start": 1678240800,
-          "end": 1678820400
+          "raid": 15000,
+          "start": 1683684000,
+          "end": 1684263600
         }
       ]
     },
     {
       "name": "global",
-      "studentlevel_max": 80,
+      "studentlevel_max": 83,
       "weaponlevel_max": 50,
       "bondlevel_max": 50,
       "gear1_max": 7,
       "gear2_max": 7,
-      "gear3_max": 6,
-      "campaign_max": 19,
+      "gear3_max": 7,
+      "campaign_max": 20,
       "events": [
         801,
         802,
@@ -1467,10 +1955,16 @@
         813,
         814,
         815,
+        816,
+        817,
+        818,
         701,
         10801,
         10802,
-        10803
+        10803,
+        10804,
+        10805,
+        10806
       ],
       "event_701_max": 10,
       "event_701_challenge_max": 1,
@@ -1480,38 +1974,63 @@
       "current_gacha": [
         {
           "characters": [
-            10048,
-            10000,
-            10024,
-            10015
+            10053,
+            10054
           ],
-          "start": 1676340000,
-          "end": 1677549600
+          "start": 1682388000,
+          "end": 1683597600
         }
       ],
       "current_events": [
         {
-          "event": 701,
-          "start": 1676340000,
-          "end": 1677549600
+          "event": 818,
+          "start": 1682388000,
+          "end": 1683597600
         }
       ],
       "current_raid": [
         {
-          "raid": 3,
+          "raid": 8,
           "terrain": "Indoor",
-          "start": 1676340000,
-          "end": 1676919600
+          "start": 1682388000,
+          "end": 1682967600
         },
         {
-          "raid": 6000,
-          "start": 1676944800,
-          "end": 1677524400
+          "raid": 9000,
+          "start": 1682992800,
+          "end": 1683572400
         }
       ]
     }
   ],
   "changelog": [
+    {
+      "date": "2023/04/05",
+      "contents": [
+        "<h6>JP Server Update</h6>",
+        "<ul><li>Added information for Area 22 mission stages and T8 Equipment.</li></ul>",
+        "<h6>Improvements & Bug Fixes</h6>",
+        "<ul><li>Added ability to filter buff and debuff search results by stat.</li><li>Buffs and debuffs belonging to the selected character or enemy will now be displayed first in the search results.</li><li>Fixed bug that prevented some calculations from updating when viewing enemy skills.</li></ul>"
+      ]
+    },
+    {
+      "date": "2023/04/01",
+      "contents": [
+        "<h6>Incoming Damage Calculations</h6>",
+        "<ul><li>Added calculations for incoming damage from enemy normal attacks and skills.</li><li>Displays estimated damage received, and whether an attack may be critical or evaded.</li><li>This is currently only available for Total Assault enemies.</li></ul>",
+        "<h6>Improvements & Bug Fixes</h6>",
+        "<ul><li>The enemy selected for damage calculations will now be remembered between visits.</li><li>Added ability to filter enemy search results by game mode.</li><li>Added the ability to bookmark enemies and filter the search results to only bookmarks.</li><li>Information for some non-raid enemy skills will now be displayed under their stats table.</li><li>Added an indication for stats that have reached the 80% reduction cap when adding debuffs.</li></ul>"
+      ]
+    },
+    {
+      "date": "2023/03/23",
+      "contents": [
+        "<h6>JP Event Update</h6>",
+        "<ul><li>Added information for new event characters, items and normal Extra stages.</li></ul>",
+        "<h6>Improvements & Bug Fixes</h6>",
+        "<ul><li>Unique Item can now be set to T1/T2. Setting to T2 will automatically show/hide the calculation for the upgraded Basic skill and change any set buffs.</li><li>Added several student buffs that were not available to be set.</ul>"
+      ]
+    },
     {
       "date": "2023/02/22",
       "contents": [
@@ -1659,15 +2178,6 @@
       "contents": [
         "Added information for Akane (Bunny) and Bunny Chaser Rerun stages.",
         "Added alternative sprites for more students."
-      ]
-    },
-    {
-      "date": "2022/09/28",
-      "contents": [
-        "Added information for Noa, Utaha (Cheerleader) and Hibiki (Cheerleader).",
-        "Added information for Mission 20 and On Your Mark @ Millennium stages.",
-        "Added information for new items, furniture and equipment.",
-        "Settings for student stats will now be remembered between visits. (Students marked as collected will still remember individual settings)"
       ]
     }
   ]

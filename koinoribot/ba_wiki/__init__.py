@@ -7,14 +7,20 @@ from hoshino import Service, priv
 from hoshino.config import NICKNAME, SUPERUSERS
 from hoshino.util import FreqLimiter
 from .student_info import *
-from .get_gacha import *
+from .get_gacha import increase_value, check_mode, get_10_gacha, get_1_gacha, change_mode, gachaPath, studentPath
 from .._R import get
+from .boss_info import get_boss_info, get_difficulty_id, get_boss_raids_id
+
 
 sv = Service('碧蓝档案学生wiki')
 
 nick_dict_path = os.path.join(os.path.dirname(__file__), 'db/students_nickname.json')
 user_dict_path = os.path.join(os.path.dirname(__file__), 'gacha/userdata.json')
 gacha_pool_path = os.path.join(os.path.dirname(__file__), 'db/gacha.json')
+boss_nick_dict = json.load(open(os.path.join(os.path.dirname(__file__), 'db/boss_nickname.json'), encoding='utf-8'))
+boss_nick_list = []
+for i, j in boss_nick_dict.items():
+    boss_nick_list = boss_nick_list + j[:]
 
 sorry = get('emotion/shiro_gomen.png').cqcode
 pardon = get('emotion/问号.png').cqcode
@@ -23,14 +29,16 @@ ok = get('emotion/ok.png').cqcode
 
 flmt = FreqLimiter(5)
 
-
 @sv.on_prefix('档案查询', 'bacx', 'dacx')
 async def send_student_info(bot, ev):
     nickname = ev.message.extract_plain_text().strip()
-    _student_id = get_student_id(nickname)
-    uid = ev.user_id
     if not nickname:
         return
+    if nickname in boss_nick_list:
+        await bot.send(ev, '总力战boss请使用boss查询...' + no)
+        return
+    _student_id = get_student_id(nickname)
+    uid = ev.user_id
     if not priv.check_priv(ev, priv.SUPERUSER):
         if not flmt.check(uid):
             await bot.send(ev, f'请让冰祈休息一下QAQ...({round(flmt.left_time(uid))}s)')
@@ -59,6 +67,43 @@ async def send_student_info(bot, ev):
         hoshino.logger.error(f"碧蓝档案wiki,合并转发消息失败：{e}")
         await bot.send(ev, student_card)
     flmt.start_cd(uid)
+
+
+@sv.on_prefix('boss查询')
+async def send_boss_info(bot, ev):
+    message = ev.message.extract_plain_text().strip()
+    if not message:
+        await bot.send(ev, '可以查的boss：大蛇/球/黑白/主教/高达/鸡斯拉/hod/goz\n可以用的难度：nm/hd/vh/hc/ex/ins/tm\n如：boss查询 主教 ex')
+        return
+    boss_and_difficulty = message.split(' ')
+    if len(boss_and_difficulty) < 2:
+        await bot.send(ev, '这样用喔：boss查询 boss 难度(如：boss查询 Binah hc)')
+        return
+    boss_raid_id = get_boss_raids_id(boss_and_difficulty[0])
+    difficulty_id = get_difficulty_id(boss_and_difficulty[-1])
+    if not boss_raid_id:
+        await bot.send(ev, '没有这个boss喔...可以用的关键词：大蛇/球/黑白/主教/高达/鸡斯拉/hod/goz')
+        return
+    if not difficulty_id:
+        await bot.send(ev, '没有这个难度喔...可以用的关键词：nm/hd/vh/hc/ex/ins/tm')
+        return
+    await bot.send(ev, '正在制作boss卡片中，请耐心等待~')
+    imageToSend, bossBgm, bossProfile = get_boss_info(boss_raid_id, difficulty_id)
+    if imageToSend == '没有这个难度喔..':
+        await bot.send(ev, imageToSend + no)
+        return
+    boss_list = json.load(open(os.path.join(database_path, 'boss_nickname.json'), encoding="utf-8"))
+    boss_name = f"查询关键词：{'、'.join(boss_list[str(boss_raid_id)])}"
+    try:
+        chain = []
+        await chain_reply(bot, ev, chain, imageToSend)
+        await chain_reply(bot, ev, chain, bossProfile)
+        await chain_reply(bot, ev, chain, boss_name)
+        await bot.send_group_forward_msg(group_id=ev.group_id, messages=chain)
+    except Exception as e:
+        hoshino.logger.error(f"碧蓝档案wiki,合并转发消息失败：{e}")
+        await bot.send(ev, imageToSend)
+
 
 
 @sv.on_prefix('技能查询', 'jncx')
@@ -140,7 +185,18 @@ async def student_nickname(bot, ev):
             msg = ''
     chain = []
     for msg in msglist:
-        await chain_reply(bot, ev, chain, msg)
+        node = {
+            "type": "node",
+            "data": {
+                "name": str(NICKNAME),
+                "uin": str(ev.self_id),
+                "content": [
+                    {
+                        "type": "text",
+                        "data": {
+                            "text": msg}}]}
+        }
+        chain.append(node)
     await bot.send_group_forward_msg(group_id=ev['group_id'], messages=chain)
 
 
@@ -212,6 +268,8 @@ async def gacha_1_time(bot, ev):
 
 @sv.on_prefix('当前up')
 async def show_current_pickup(bot, ev):
+    gacha_pool = json.load(open(gachaPath, encoding='utf-8'))
+    student_data = json.load(open(studentPath, encoding='utf-8'))
     cur_gacha_pool = json.load(open(gachaPath, encoding='utf-8'))
     cur_pickup = cur_gacha_pool['pickup']
     msg = ['当前UP池有：(ID.角色)']
@@ -223,6 +281,7 @@ async def show_current_pickup(bot, ev):
 
 @sv.on_prefix('切换卡池', '换池', '换卡池')
 async def change_pickup(bot, ev):
+    gacha_pool = json.load(open(gachaPath, encoding='utf-8'))
     uid = ev.user_id
     message = ev.message.extract_plain_text().strip()
     if not message:

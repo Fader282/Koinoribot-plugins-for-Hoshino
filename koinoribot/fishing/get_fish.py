@@ -180,12 +180,12 @@ def compound_bottle(uid, num: int = 1):
     total_info = loadData(user_info_path)
     uid = str(uid)
     if user_info['fish']['🔮'] < config.CRYSTAL_TO_BOTTLE:
-        return {'code': -1, 'msg': '要三个🔮才可以合成一个漂流瓶体喔'}
-    if (num * 3) > user_info['fish']['🔮']:
-        num = int(user_info['fish']['🔮'] / 3)
-    decrease_value(uid, 'fish', '🔮', num * 3)
+        return {'code': -1, 'msg': f'要{config.CRYSTAL_TO_BOTTLE}个🔮才可以合成一个漂流瓶体喔'}
+    if (num * config.CRYSTAL_TO_BOTTLE) > user_info['fish']['🔮']:
+        num = int(user_info['fish']['🔮'] / config.CRYSTAL_TO_BOTTLE)
+    decrease_value(uid, 'fish', '🔮', num * config.CRYSTAL_TO_BOTTLE)
     increase_value(uid, 'fish', '✉', num)
-    return {'code': 1, 'msg': f'{num * 3}个🔮发出柔和的光芒，融合成了{num}个漂流瓶体！\n可以使用"#扔漂流瓶+内容"来投放漂流瓶了！'}
+    return {'code': 1, 'msg': f'{num * config.CRYSTAL_TO_BOTTLE}个🔮发出柔和的光芒，融合成了{num}个漂流瓶体！\n可以使用"#扔漂流瓶+内容"来投放漂流瓶了！'}
 
 
 def decrease_value(uid, mainclass, subclass, num):
