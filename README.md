@@ -56,6 +56,9 @@
  - 部分功能需要申请api，请将相应的api填进 `koinoribot/config.py` 里以正常使用插件。
  
  
+ - 部分功能如 `语音版网易云点歌` 需要用到`ffmpeg`，在[官网](https://ffmpeg.org/download.html)下载后解压至任意位置，并在环境变量`Path`中添加`ffmpeg.exe`所在路径。
+ 
+ 
  - 部分插件在下载图片时需要走代理，可以在 `koinoribot/config.py` 的 `proxies` 栏内进行配置。推荐使用 [clash](https://github.com/Fndroid/clash_for_windows_pkg)
 </details>
 

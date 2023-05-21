@@ -257,7 +257,7 @@ async def as_login_v3(uid, username, qqname, nick_flag):
     # === 背景部分 ===
     if not debug_mode:
         if user_bg['mode'] == 2:
-            border = 1
+            border = 2
             is_bold = True
             user_bg_choose = f"customize/{user_bg['custom']}"
             imageFile = os.path.join(srcpath, user_bg_choose)
@@ -271,7 +271,7 @@ async def as_login_v3(uid, username, qqname, nick_flag):
             mask = BuildImage(0, 0, font_size=30, background=os.path.join(srcpath, 'login_background_custom.png'), font = 'HYShiGuangTiW_0.ttf')
             bg.paste(mask, (0, 0), True)
         else:
-            border = None
+            border = 0
             is_bold = False
             if user_bg['default']:
                 user_bg_choose = user_bg['default']
@@ -287,7 +287,7 @@ async def as_login_v3(uid, username, qqname, nick_flag):
             bg = BuildImage(0, 0, font_size=30, background=imageFile, font = 'HYShiGuangTiW_0.ttf')
 
     else:
-        border = None
+        border = 0
         is_bold = True
         imageFile = os.path.join(srcpath, random.choice(hoshi_bg_list))
         bg = BuildImage(0, 0, font_size=30, background=imageFile, font = 'HYShiGuangTiW_0.ttf')
@@ -305,7 +305,7 @@ async def as_login_v3(uid, username, qqname, nick_flag):
 
     # === 日期+累计签到部分 ===
     date_text = BuildImage(0, 0, plain_text=date_msg, font_size=30, font='nyan.ttf',
-                           font_color=(77, 83, 149), border = border, is_bold=is_bold)
+                           font_color=(77, 83, 149), stroke_width = border, stroke_fill=(255, 255, 255))
     bg.paste(date_text, (23, 490), True)
 
     # === 用户名部分 ===
@@ -320,7 +320,7 @@ async def as_login_v3(uid, username, qqname, nick_flag):
     else:
         final_txt = qqname
     name_text = BuildImage(0, 0, plain_text=final_txt, font_size=30, font='yz.ttf',
-                           font_color=(77, 83, 149), border = border, is_bold=is_bold)
+                           font_color=(77, 83, 149), stroke_width = border, stroke_fill=(255, 255, 255))
     if nick_flag:
         nick_msg = f"欢迎回来，{username}~"
     else:
@@ -330,7 +330,7 @@ async def as_login_v3(uid, username, qqname, nick_flag):
         nick_msg = f"......"
 
     nick_text = BuildImage(0, 0, plain_text=nick_msg, font_size=25, font='yz.ttf',
-                           font_color=(77, 83, 149), border = border, is_bold=is_bold)
+                           font_color=(77, 83, 149), stroke_width = border, stroke_fill=(255, 255, 255))
     bg.paste(name_text, (190, 30), True)
     bg.paste(nick_text, (190, 75), True)
 
@@ -345,13 +345,13 @@ async def as_login_v3(uid, username, qqname, nick_flag):
         jieri_msg = ''
     if jieri_msg:
         jieri_image = BuildImage(0, 0, plain_text=jieri_msg, font_size=30, font='HYShiGuangTiW_0.ttf',
-                                 font_color=(77, 83, 149), border = border, is_bold=is_bold)
+                                 font_color=(77, 83, 149), stroke_width = border, stroke_fill=(255, 255, 255))
         w, h = jieri_image.size
         bg.paste(jieri_image, (int(215 - w / 2), 157), True)
 
     # === 运势部分 ===
-    bg.text((49, 259), good_luck_msg, (77, 83, 149), border = border, is_bold=is_bold)
-    bg.text((261, 259), bad_luck_msg, (77, 83, 149), border = border, is_bold=is_bold)
+    bg.text((49, 259), good_luck_msg, (77, 83, 149), stroke_width = border, stroke_fill=(255, 255, 255))
+    bg.text((261, 259), bad_luck_msg, (77, 83, 149), stroke_width = border, stroke_fill=(255, 255, 255))
 
     # === 人品部分 ===
     if rp < 0:
@@ -363,17 +363,17 @@ async def as_login_v3(uid, username, qqname, nick_flag):
     else:
         rp_colormap = (68, 118, 244)
     rp_number = BuildImage(0, 0, plain_text=str(rp), font_size=60, font='nyan.ttf',
-                           font_color=rp_colormap, border = border, is_bold=is_bold)
+                           font_color=rp_colormap, stroke_width= border, stroke_fill=(255, 255, 255))
     rp_w, rp_h = rp_number.size
     bg.paste(rp_number, (int(215 - rp_w / 2), 356), True)
     infoImage = BuildImage(0, 0, plain_text=info, font_size=25, font='HYShiGuangTiW_0.ttf',
-                           font_color=rp_colormap, border=border, is_bold=is_bold)
+                           font_color=rp_colormap, stroke_width=border, stroke_fill=(255, 255, 255))
     info_w, info_h = infoImage.size
     bg.paste(infoImage, (int(215 - info_w / 2), 424), True)
 
     # === 额外奖励 ===
     if not login_flag:
-        bg.text((590, 70), extra_msg, (77, 83, 149), border = 1, is_bold=True)
+        bg.text((590, 70), extra_msg, (77, 83, 149), stroke_width = 2, stroke_fill=(255, 255, 255, 1))
         if extra_msg:
             bonusIconFile = os.path.join(srcpath, 'extra_bonus.png')
             bonus_icon = BuildImage(0, 0, background = bonusIconFile)
@@ -384,7 +384,7 @@ async def as_login_v3(uid, username, qqname, nick_flag):
         total_bg = BuildImage(0, 0, background = totalIconFile)
         bg.paste(total_bg, (553, 255), True)
         final_text = BuildImage(0, 0, plain_text=total_get_msg, font_size=25, font='HYShiGuangTiW_0.ttf', font_color=(77, 83, 149))
-        bg.text((618, 338), total_get_msg, (77, 83, 149), is_bold=True)
+        bg.text((618, 338), total_get_msg, (77, 83, 149), stroke_width=2, stroke_fill=(255, 255, 255, 1))
 
     # === 已签到之后 ===
     else:
