@@ -43,8 +43,7 @@ async def luxun_once_said(bot, ev):
 
 @sv.on_prefix('莎士比亚说', '莎士比亚说过', '莎士比亚讲', '莎士比亚讲过')
 async def shashibiya_once_said(bot, ev):
-    match = ev['match']
-    message = match.group(2).strip()
+    message = ev.message.extract_plain_text().strip()
     for biaodian in [',', '，', ':', '：']:
         if message.startswith(biaodian):
             message.strip(biaodian)
