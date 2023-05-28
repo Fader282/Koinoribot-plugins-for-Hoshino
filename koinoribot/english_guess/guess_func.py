@@ -1,11 +1,14 @@
 import os
 import random
+import re
 
 from ..utils import loadData, saveData
 
 
 check_list = loadData(os.path.join(os.path.dirname(__file__), f'data/check_list_8.json'))
 level_trans = {'四级': 'cet_4', '六级': 'cet_6', '专八': 'level_8', '八级': 'level_8'}
+level_trans_jp = {'n5': 'n45', 'n4': 'n45', 'n3': 'n3', 'n2': 'n2', 'n1': 'n1', 'all': 'all', 'n45': 'n45'}
+
 
 
 def load_dict(level: str = '四级', word_len: int = 5):
@@ -16,9 +19,17 @@ def load_dict(level: str = '四级', word_len: int = 5):
     return dictionary
 
 
+def load_jp_dict(level: str = 'all'):
+    level = level.lower()
+    if level not in ['n45', 'n3', 'n2', 'n1', 'n4', 'n5']:
+        level = 'all'
+    dictionary = loadData(os.path.join(os.path.dirname(__file__), f'data/japanese/{level}/{level}_list.json'))
+    return dictionary
+
+
 def guess_game(word_len: int, level: str = '四级'):
     """
-        猜英语单词的游戏
+        猜英语单词的游戏（命令提示符版）
     """
     word = ['_' for i in range(word_len)]
     dictionary = load_dict(level, word_len)
@@ -56,6 +67,12 @@ def get_random_word(word_len: int, level: str = '四级'):
     return rand_word
 
 
+def get_random_tango(level: str = 'all'):
+    dictionary = load_jp_dict(level)
+    rand_tango = random.choice(dictionary)
+    return rand_tango
+
+
 def get_input(word_len: int):
     active = True
     uinput = ''
@@ -65,11 +82,22 @@ def get_input(word_len: int):
             print(f'长度不对，要猜的单词只有{word_len}个字母')
             continue
         if uinput not in check_list:
-            print(f'这个单词是四六级词汇吗')
+            print(f'这个单词是四六级/专八词汇吗')
             continue
         else:
             active = False
     return uinput
+
+
+def kana_yomi_splt(word: str):
+    """
+        将假名与读音分开
+    """
+    rematch = re.findall(r'([\u30a1-\u30f6\u3041-\u3093\uFF00-\uFFFF\u4e00-\u9fa5]+)([⓪①②③④⑤⑥⑦⑧⑨⑩]+(或[⓪①②③④⑤⑥⑦⑧⑨⑩]+)?)?', word)
+    kana = rematch[0][0]
+    yomi = rematch[0][1]
+    return kana, yomi
+
 
 def format_word(word: list):
     string = ''.join(word)

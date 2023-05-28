@@ -202,7 +202,7 @@ async def guess_english_game(bot, ev):
                 return
             if message == '提示':
                 if session.state['times'] < 4:
-                    await bot.send(ev, f"{5 - session.state['times']}次才能获取提示喔")
+                    await bot.send(ev, f"还需要猜{5 - session.state['times']}次才能获取提示喔")
                     return
                 else:
                     await bot.send(ev, f'这个单词的意思是：{trans}')
