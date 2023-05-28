@@ -115,6 +115,13 @@ async def defuse_card(ev: CQEvent, session:ActSession):
         await session.send(ev, '不可以替其他人决定喔')
         return
 
+    if not session.state['usercard'][str(session.state['turn'])].get('chip'):
+        session.state['usercard'][str(session.state['turn'])]['card'].append(session.state['cur_card'])
+        session.state['usercard'][str(session.state['turn'])]['chip'] += session.state['cur_chip']
+        await bot.send(ev, f'{MessageSegment.at(session.state["turn"])}你已经没有筹码了，必须收下这张牌和{session.state["cur_chip"]}枚筹码')
+
+        await new_card_or_end(ev, session)    # auto return
+
     session.state['usercard'][str(session.state["turn"])]['chip'] -= 1
     session.state['turn'] = session.rotate.__next__()
     session.state['cur_chip'] += 1
@@ -122,12 +129,12 @@ async def defuse_card(ev: CQEvent, session:ActSession):
     if not session.state['usercard'][str(session.state['turn'])].get('chip'):
         session.state['usercard'][str(session.state['turn'])]['card'].append(session.state['cur_card'])
         session.state['usercard'][str(session.state['turn'])]['chip'] += session.state['cur_chip']
-        await bot.send(ev, f'{MessageSegment.at(session.state["turn"])}你已经没有筹码了，必须收下这张牌')
+        await bot.send(ev, f'{MessageSegment.at(session.state["turn"])}你已经没有筹码了，必须收下这张牌和{session.state["cur_chip"]}枚筹码')
 
         await new_card_or_end(ev, session)
     else:
         await bot.send(ev, f'牌上已有{session.state["cur_chip"]}枚筹码，请{MessageSegment.at(session.state["turn"])}选择"要"或"不要"这张{session.state["cur_card"]}点牌')
-    return
+        return
 
 
 @interact.add_action('不谢牌', ('要', ))
@@ -144,14 +151,6 @@ async def accept_card(ev: CQEvent, session: ActSession):
     session.state['usercard'][str(session.state['turn'])]['card'].append(session.state['cur_card'])
     session.state['usercard'][str(session.state['turn'])]['chip'] += session.state['cur_chip']
     session.state['cur_chip'] = 0
-
-    if not session.state['usercard'][str(session.rotate.__next__())].get('chip'):
-        session.state['turn'] = session.rotate.__next__()
-        session.state['usercard'][str(session.state['turn'])]['card'].append(session.state['cur_card'])
-        session.state['usercard'][str(session.state['turn'])]['chip'] += session.state['cur_chip']
-        await bot.send(ev, f'{MessageSegment.at(session.state["turn"])}你已经没有筹码了，必须收下这张{session.state["cur_card"]}点牌')
-
-        await new_card_or_end(ev, session)
 
     await new_card_or_end(ev, session)
 
