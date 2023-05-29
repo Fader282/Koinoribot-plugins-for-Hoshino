@@ -29,6 +29,9 @@ ok = get('emotion/ok.png').cqcode
 
 flmt = FreqLimiter(5)
 
+if not NICKNAME:
+    NICKNAME = '阿罗娜'
+
 @sv.on_prefix('档案查询', 'bacx', 'dacx')
 async def send_student_info(bot, ev):
     nickname = ev.message.extract_plain_text().strip()
@@ -66,6 +69,7 @@ async def send_student_info(bot, ev):
     except Exception as e:
         hoshino.logger.error(f"碧蓝档案wiki,合并转发消息失败：{e}")
         await bot.send(ev, student_card)
+    
     flmt.start_cd(uid)
 
 
@@ -103,8 +107,7 @@ async def send_boss_info(bot, ev):
     except Exception as e:
         hoshino.logger.error(f"碧蓝档案wiki,合并转发消息失败：{e}")
         await bot.send(ev, imageToSend)
-
-
+    
 
 @sv.on_prefix('技能查询', 'jncx')
 async def send_skill_info(bot, ev):

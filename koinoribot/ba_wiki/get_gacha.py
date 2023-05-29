@@ -6,11 +6,11 @@ from .student_info import *
 
 from ..build_image import BuildImage
 
-from .._R import imgPath
+from .._R import imgPath, userPath
 
 save_gacha_pic = 0
 
-recordPath = os.path.join(os.path.dirname(__file__), 'gacha/userdata.json')
+recordPath = os.path.join(userPath, 'gacha/userdata.json')
 gachaPath = os.path.join(os.path.dirname(__file__), 'db/gacha.json')
 studentPath = os.path.join(os.path.dirname(__file__), 'db/students.json')
 plugin_path = os.path.join(os.path.dirname(__file__))
