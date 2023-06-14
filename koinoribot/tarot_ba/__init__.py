@@ -4,11 +4,12 @@ import time
 
 import hoshino
 from .._R import imgPath
-from ..utils import loadData, saveData
+from ..utils import loadData, saveData, pic2b64
 from hoshino import Service
 from .card_desc import cards
 from hoshino.util import FreqLimiter
 from hoshino.config import SUPERUSERS
+from ..config import SEND_FORWARD
 
 sv = Service('tarot-ba', visible= True, enable_on_default= True, bundle='碧蓝档案塔罗牌', help_='''
 碧蓝档案塔罗牌
@@ -48,14 +49,18 @@ async def blue_archive_tarot(bot, ev):
 
     img_path = os.path.join(imgPath, f'ba_wiki/tarot/{card}-{is_turned}.png')
 
-    chain = []
-    try:
-        await chain_reply(bot, ev, chain, msg, user_id=ev.self_id)
-        await chain_reply(bot, ev, chain, f'[CQ:image,file=file:///{img_path}]', ev.self_id)
-        await bot.send_group_forward_msg(group_id=ev['group_id'], messages=chain)
-    except Exception as e:
-        hoshino.logger.error(f'合并转发碧蓝档案塔罗牌出错：{e}')
-        await bot.send(ev, msg + '\n' + f'[CQ:image,file=file:///{img_path}]')
+    if SEND_FORWARD:
+        chain = []
+        try:
+            await chain_reply(bot, ev, chain, msg, user_id=ev.self_id)
+            await chain_reply(bot, ev, chain, f'[CQ:image,file=base64://{pic2b64(img_path)}]', ev.self_id)
+            await bot.send_group_forward_msg(group_id=ev['group_id'], messages=chain)
+        except Exception as e:
+            hoshino.logger.error(f'合并转发碧蓝档案塔罗牌出错：{e}')
+            await bot.send(ev, msg + '\n' + f'[CQ:image,file=base64://{pic2b64(img_path)}]')
+    else:
+        await bot.send(ev, msg + '\n' + f'[CQ:image,file=base64://{pic2b64(img_path)}]')
+
     flmt.start_cd(ev.user_id)
 
 

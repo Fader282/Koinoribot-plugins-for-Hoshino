@@ -3,6 +3,8 @@ import random
 from hoshino import Service
 import requests
 from .._R import imgPath
+from ..utils import get_net_img
+from ..build_image import pic2b64
 
 
 headers = {
@@ -20,11 +22,6 @@ async def random_waifu_generator(bot, ev):
     await bot.send(ev, '冰祈咏唱中...')
     rand_num = random.randint(1, 100000)
     image_name = 'example-%d.jpg' % rand_num
-    file_name = os.path.join(imgPath, f'random_waifu/{image_name}')
-    if not os.path.exists(file_name):
-        img = requests.get(waifuUrl + image_name, timeout=6, headers=headers)
-        with open(file_name, 'wb') as f:
-            for chunk in img.iter_content(chunk_size=1024 ** 3):
-                f.write(chunk)
-    get_image = f'file:///{file_name}'
+    bg = await get_net_img(waifuUrl + image_name)
+    get_image = f'base64://{bg.pic2bs4()}'
     await bot.send(ev, f'[CQ:image,file={get_image}]')

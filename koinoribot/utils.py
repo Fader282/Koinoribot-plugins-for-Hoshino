@@ -1,11 +1,12 @@
+import base64
 import io
 import json
 import os
 import re
 
 import aiohttp
-#import asyncio
-#asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+import asyncio
+asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from .build_image import BuildImage
 
@@ -85,7 +86,7 @@ async def chain_reply(bot, ev, chain, msg, user_id = 0):
 
 async def get_user_icon(uid) -> BuildImage:
     """
-        获取用户头像
+        获取用户头像，返回BuildImage类方便后续处理
     """
     imageUrl = f'https://q1.qlogo.cn/g?b=qq&nk={uid}&src_uin=www.jlwz.cn&s=0'
     async with aiohttp.ClientSession() as session:
@@ -118,3 +119,11 @@ async def get_net_img_proxy(url) -> BuildImage:
     file = io.BytesIO(content)
     icon = BuildImage(0, 0, background = file)
     return icon
+
+
+def pic2b64(pic_path) -> str:
+    """
+        将图片转换为base64字符串
+    """
+    b64string = base64.b64encode(open(pic_path, 'rb').read()).decode()
+    return b64string

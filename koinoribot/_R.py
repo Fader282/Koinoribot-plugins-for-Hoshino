@@ -2,12 +2,16 @@ import io
 import os
 from urllib.parse import urljoin
 from urllib.request import pathname2url
+import base64
 
 import aiohttp
 from PIL import Image
 from aiocqhttp import MessageSegment
 from hoshino import util
-from .build_image import BuildImage
+try:
+    from .build_image import BuildImage
+except:
+    from build_image import BuildImage
 
 import hoshino
 
@@ -43,7 +47,7 @@ class ResImg(ResObjKoi):
         if hoshino.config.RES_PROTOCOL == 'http':
             return MessageSegment.image(self.url)
         elif hoshino.config.RES_PROTOCOL == 'file':
-            return MessageSegment.image(f'file:///{os.path.abspath(self.path)}')
+            return MessageSegment.image(f'base64://{pic2b64(os.path.abspath(self.path))}')
         else:
             try:
                 return MessageSegment.image(util.pic2b64(self.open()))
@@ -66,6 +70,11 @@ def get(path, *paths):  # 获取图片
 def check_path_exists(path):
     if not os.path.exists(path):
         os.mkdir(path)
+
+
+def pic2b64(path):
+    decoded = base64.b64encode(open(path, 'rb').read()).decode()
+    return decoded
 
 
 async def get_user_icon(uid) -> BuildImage:  # 最好使用utils里的

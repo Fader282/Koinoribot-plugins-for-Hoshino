@@ -4,7 +4,7 @@
 [![试用群](https://img.shields.io/badge/试用/二群-冰祈杂谈分铺-brightgreen)](https://jq.qq.com/?_wv=1027&k=fdFbP60u)
 
 
-基于HoshinoBot的冰祈插件集合 [![Hoshinobot Version](https://img.shields.io/badge/hoshino-2.1.0-blue)](https://github.com/Ice-Cirno/HoshinoBot) 
+基于HoshinoBot的冰祈插件集合 [![Hoshinobot Version](https://img.shields.io/badge/hoshino-2.1.0-blue)](https://github.com/Ice9Coffee/HoshinoBot) 
 
 
 ## 功能介绍
@@ -67,7 +67,7 @@
 <details>
  <summary> 关于如何安装hoshino </summary> 
 
-- 仓库传送门 [Hoshinobot](https://github.com/Ice-Cirno/HoshinoBot) (作者： [Ice-cirno](https://github.com/Ice-Cirno))
+- 仓库传送门 [Hoshinobot](https://github.com/Ice9Coffee/HoshinoBot) (作者： [Ice9Coffee](https://github.com/Ice9Coffee))
 
 </details>
 

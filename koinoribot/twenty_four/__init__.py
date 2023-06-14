@@ -53,7 +53,7 @@ async def xxivgame_manage(bot, ev):
     format_ = format_expression(submit)
     try:
         answer = eval(format_)  # 数
-    except SyntaxError as e:
+    except Exception as e:
         return
     answer = round(answer, 2)
     match = re.findall(r'(\d+)', submit)

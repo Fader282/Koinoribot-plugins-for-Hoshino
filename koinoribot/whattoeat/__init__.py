@@ -3,7 +3,7 @@ from hoshino import Service, priv, aiorequests
 from hoshino.typing import CQEvent
 from hoshino.util import DailyNumberLimiter
 import ujson
-from .._R import imgPath
+from .._R import imgPath, pic2b64
 from ..config import foods_whitelist
 
 
@@ -67,7 +67,7 @@ async def random_breakfast(bot, ev: CQEvent):
             foodimg = os.path.join(foodsPath, f'upload/{food}')
         else:
             foodimg = os.path.join(foodsPath, f'breakfast/{food}')
-        imgToSend = f'[CQ:image,file=file:///{foodimg}]'
+        imgToSend = f'[CQ:image,file=base64://{pic2b64(foodimg)}]'
         to_eat_image = str(imgToSend)
         await bot.send(ev, to_eat_image)
     except Exception as e:
@@ -107,7 +107,7 @@ async def net_ease_cloud_word(bot, ev: CQEvent):
             foodimg = os.path.join(foodsPath, f'upload/{food}')
         else:
             foodimg = os.path.join(foodsPath, f'dinner/{food}')
-        imgToSend = f'[CQ:image,file=file:///{foodimg}]'
+        imgToSend = f'[CQ:image,file=base64://{pic2b64(foodimg)}]'
         to_eat_image = str(imgToSend)
         await bot.send(ev, to_eat_image)
     except Exception as e:
@@ -157,7 +157,7 @@ async def change_menu(bot, ev: CQEvent):
             return
         elif int(user_config[uid]) == 1:
             user_config[uid] = 0
-            yami = f"[CQ:image,file=file:///{os.path.join(foodsPath, 'yami.png')}]"
+            yami = f"[CQ:image,file=base64://{pic2b64(os.path.join(foodsPath, 'yami.png'))}]"
             await bot.send(ev, f'切换成功，果然还是正常的好吃呢~{yami}')
         else:
             user_config[uid] = 0
@@ -165,10 +165,10 @@ async def change_menu(bot, ev: CQEvent):
     elif command == '来点硬菜':
         if int(user_config[uid]) != 1:
             user_config[uid] = 1
-            kowai = f"[CQ:image,file=file:///{os.path.join(foodsPath, 'kowai.png')}]"
+            kowai = f"[CQ:image,file=base64://{pic2b64(os.path.join(foodsPath, 'kowai.png'))}]"
             await bot.send(ev, f'切...切换成功...{kowai}')
         else:
-            jii = f"[CQ:image,file=file:///{os.path.join(foodsPath, 'jii.png')}]"
+            jii = f"[CQ:image,file=base64://{pic2b64(os.path.join(foodsPath, 'jii.png'))}]"
             await bot.send(ev, f'您已经站在了食物链的顶端！{jii}')
             return
     elif command == '用户模式':

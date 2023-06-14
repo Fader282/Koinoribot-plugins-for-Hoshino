@@ -8,6 +8,10 @@ friend_auto_approve = False   # 是否自动同意好友邀请（需进入白名
 star_cost_mode = False  # 是否需要消耗星星来获得bot好友
 
 
+SEND_FORWARD = True  # 是否启用合并转发（应对风控）
+PUBLIC_BOT = False  # 是否启用云bot模式（一般可忽略）
+
+
 # 腾讯api
 # 密钥可前往 https://console.cloud.tencent.com/cam/capi 网站进行获取
 TXSecretId = ''
@@ -25,7 +29,7 @@ AUTO_SAVE = True  # 是否保存到本地
 AUTO_DELETE = False  # 是否撤回
 DELETE_TIME = 30  # 撤回的等待时间
 
-# arcaea unofficial API
+# arcaeaAPI
 api_url = ''
 token = ''
 
@@ -34,7 +38,7 @@ SAVE_MODE = False  # 是否保存到本地
 DELETE_MODE = False  # 是否自动撤回
 
 # 今天吃什么
-foods_whitelist = [837052156, 974114299, 807505574]  # 可以添加菜谱的群聊，为空则所有人都能添加
+foods_whitelist = []  # 可以添加菜谱的群聊，为空则所有人都能添加
 
 # 网络代理
 proxies = {
@@ -42,13 +46,9 @@ proxies = {
     'https:': 'https://127.0.0.1:7890'
 }
 
-# openai api (用于CHATGPT)
+# openai api
 OPEN_API = ''
 OPEN_ORG = ''
-
-
-# 无忧云 jhapi api
-JHAPI_API = 'usCl6x6rsVLqftCJmdQImHLMhR'
 
 
 # 钓鱼
