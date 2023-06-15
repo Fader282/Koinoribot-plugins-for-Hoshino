@@ -12,12 +12,14 @@ from .. import money, config
 from .._R import get, userPath
 from .util import shift_time_style, update_serif
 from ..utils import chain_reply, saveData
+from ..config import SEND_FORWARD, FISH_LIST
 
 from .get_fish import fishing, buy_bait, free_fish, sell_fish, change_fishrod, compound_bottle, getUserInfo, increase_value, decrease_value
 from .serif import cool_time_serif
-from .get_bottle import get_bottle_amount, check_bottle, format_message, check_permission, check_content, set_bottle, delete_bottle, add_to_blacklist, remove_from_blacklist, show_blacklist
+from .get_bottle import get_bottle_amount, check_bottle, format_message, check_permission, check_content, set_bottle, delete_bottle, add_to_blacklist, remove_from_blacklist, show_blacklist, format_msg_no_forward
 from .._interact import interact, ActSession
 from .evnet_functions import random_event
+
 
 '''if not config.DEBUG_MODE:
     SUPERUSERS = [SUPERUSERS[0]]'''
@@ -56,7 +58,7 @@ event_flag = {}
 
 no = get('emotion/no.png').cqcode
 ok = get('emotion/ok.png').cqcode
-fish_list = ['🐟', '🦐', '🦀', '🐡', '🐠', '🔮', '✉', '🍙', '水之心']
+fish_list = FISH_LIST + ['✉', '🍙', '水之心']
 admin_path = os.path.join(userPath, 'fishing/db/admin.json')
 freq = FreqLimiter(config.COOL_TIME)
 throw_freq = FreqLimiter(config.THROW_COOL_TIME)
@@ -72,7 +74,7 @@ async def fishing_help(bot, ev):
     await bot.send(ev, _help)
 
 
-@sv.on_fullmatch('#钓鱼', '#🎣', '＃钓鱼', '＃🎣', '🎣', '钓鱼')
+@sv.on_fullmatch('#钓鱼', '#🎣', '＃钓鱼', '＃🎣', '🎣', '钓鱼', 'gofishing')
 async def go_fishing(bot, ev):
     uid = ev.user_id
     user_info = getUserInfo(uid)
@@ -140,7 +142,7 @@ async def buy_bait_func(bot, ev):
     await bot.send(ev, f'已经成功购买{num}个鱼饵啦~(金币-{num * config.BAIT_PRICE})')
 
 
-@sv.on_fullmatch('#背包', '#仓库', '#我的背包', '#我的仓库', '＃背包', '＃仓库', '＃我的背包', '＃我的仓库')
+@sv.on_fullmatch('#背包', '#仓库', '#我的背包', '#我的仓库', '＃背包', '＃仓库', '＃我的背包', '＃我的仓库', '#🎒', "#bag")
 async def my_fish(bot, ev):
     uid = ev.user_id
     user_info = getUserInfo(uid)
@@ -149,12 +151,10 @@ async def my_fish(bot, ev):
     for i, j in user_info['fish'].items():
         if j == 0:
             continue
-        i = '当前可丢漂流瓶' if i == '✉' else i
-        i = '当前可用鱼饵🍙' if i == '🍙' else i
         items += f'{i}×{j}\n'
     if not items:
         items = '空空如也...'
-    msg += items
+    msg = msg + items
     await bot.send(ev, msg.strip('\n'), at_sender=True)
 
 
@@ -165,14 +165,14 @@ async def free_func(bot, ev):
     fish = ''
     num = 0
     if len(msg_split) == 2:
-        if msg_split[0] not in ['🐟', '🦐', '🦀', '🐡', '🐠']:
+        if msg_split[0] not in FISH_LIST:
             return
         if not str.isdigit(msg_split[-1]):
             return
         fish = msg_split[0]
         num = int(msg_split[-1])
     elif len(msg_split) == 1:
-        if msg_split[0] not in ['🐟', '🦐', '🦀', '🐡', '🐠']:
+        if msg_split[0] not in FISH_LIST:
             return
         fish = msg_split[0]
         num = 1
@@ -190,14 +190,14 @@ async def free_func(bot, ev):
     fish = ''
     num = 0
     if len(msg_split) == 2:
-        if msg_split[0] not in ['🍙', '🐟', '🦐', '🦀', '🐡', '🐠']:
+        if msg_split[0] not in ['🍙'] + FISH_LIST:
             return
         if not str.isdigit(msg_split[-1]):
             return
         fish = msg_split[0]
         num = int(msg_split[-1])
     elif len(msg_split) == 1:
-        if msg_split[0] not in ['🍙', '🐟', '🦐', '🦀', '🐡', '🐠']:
+        if msg_split[0] not in ['🍙'] + FISH_LIST:
             return
         fish = msg_split[0]
         num = 1
@@ -286,10 +286,16 @@ async def driftbottle_get(bot, ev):
         await bot.send(ev, '没有漂流瓶可以捞喔...')
         return
     await bot.send(ev, '你开始打捞漂流瓶...(🔮-2)')
-    content = await format_message(bot, ev, bottle, bottle_id)
-    await bot.send_group_forward_msg(group_id=ev.group_id, messages=content)
-    get_freq.start_cd(uid)
-    decrease_value(uid, 'fish', '🔮', 2)
+    if SEND_FORWARD:
+        content = await format_message(bot, ev, bottle, bottle_id)
+        await bot.send_group_forward_msg(group_id=ev.group_id, messages=content)
+        get_freq.start_cd(uid)
+        decrease_value(uid, 'fish', '🔮', 2)
+    else:
+        content = format_msg_no_forward(bot, ev, bottle, bottle_id)
+        await bot.send(ev, content)
+        get_freq.start_cd(uid)
+        # 就不扣水之心了
 
 
 @sv.on_prefix('#合成漂流瓶', '＃合成漂流瓶')
@@ -397,7 +403,7 @@ async def add_items(bot, ev):
     receive_id = fish_n_num[0]
     if not str.isdigit(receive_id):
         return
-    if fish_n_num[1] not in ['🐟', '🦐', '🦀', '🐡', '🐠', '🔮', '✉']:
+    if fish_n_num[1] not in ['🔮', '✉'] + FISH_LIST:
         return
     if len(fish_n_num) == 2:
         increase_value(receive_id, 'fish', fish_n_num[1], 1)
@@ -415,7 +421,6 @@ async def add_items(bot, ev):
 async def update_func(bot, ev):
     update_serif()
     await bot.send(ev, ok)
-
 
 
 # <--------随机事件集-------->

@@ -50,7 +50,7 @@ def check_bottle():
 
 async def format_message(bot, ev, bottle: dict, bottle_id):
     """
-        格式化漂流瓶内容
+        格式化漂流瓶内容(合并转发)
     """
     uid = bottle['uid']
     gid = bottle['gid']
@@ -63,6 +63,20 @@ async def format_message(bot, ev, bottle: dict, bottle_id):
     await chain_reply(bot, ev, user_id=uid, chain=chain, msg=content)
     await chain_reply(bot, ev, user_id=uid, chain=chain, msg=f'漂流瓶id：{bid}\n投放地点(群聊)：{gid}\n投放时间：{_time}\n被捡起的次数：{caught}')
     return chain
+
+
+def format_msg_no_forward(bot, ev, bottle: dict, bottle_id):
+    """
+        格式化漂流瓶内容(直接发送)
+    """
+    uid = bottle['uid']
+    gid = bottle['gid']
+    bid = bottle_id
+    _time = shift_time_style(bottle['time'])
+    caught = bottle['caught']
+    content = bottle['content']
+    msg = f'你捡到了{uid}的漂流瓶~\n投放时间：{_time}\n被捡起的次数：{caught}\n内容为：\n{content}'
+    return msg
 
 
 def delete_bottle(_id):

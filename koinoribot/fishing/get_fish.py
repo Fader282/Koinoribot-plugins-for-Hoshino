@@ -11,13 +11,16 @@ from .._R import userPath
 
 dbPath = os.path.join(userPath, 'fishing/db')
 user_info_path = os.path.join(dbPath, 'user_info.json')
-fish_list = ['🐟', '🦐', '🦀', '🐡', '🐠', '🔮', '✉', '🍙', '水之心']  # 常见，一般，稀有，罕见，传说，水之心，漂流瓶，鱼饵
+fish_list = config.FISH_LIST + ['🔮', '✉', '🍙', '水之心']
 fish_price = config.FISH_PRICE  # 价格换算
 default_info = {
     'fish': {'🐟': 0, '🦐': 0, '🦀': 0, '🐡': 0, '🐠': 0, '🔮': 0, '✉': 0, '🍙': 0},
     'statis': {'free': 0, 'sell': 0, 'total_fish': 0, 'frags': 0},
     'rod': {'current': 0, 'total_rod': [0]}
 }
+
+init_prob = (5, 10, 65, 5, 15)
+init_prob_2 = tuple([(int(100 / len(config.FISH_LIST)) for i in range(len(config.FISH_LIST)))])
 
 
 def getUserInfo(uid):
@@ -45,33 +48,38 @@ def fishing(uid):
     user_info = getUserInfo(uid)
     mode = user_info['rod']['current']
     probability = config.PROBABILITY[0 if mode == 3 else mode]  # 第一概率元组
+    if not sum(probability) == 100:
+        probability = init_prob
+        hoshino.logger.info('钓鱼概率配置错误（各个概率之和不为100%），将使用默认概率')
     probability_2 = config.PROBABILITY_2[0 if mode == 3 else mode]  # 第二概率元组
+    if not sum(probability_2) == 100:
+        probability_2 = init_prob_2
+        hoshino.logger.info('鱼上钩概率配置错误（各个概率之和不为100%），将使用默认概率')
 
-    first_choose = random.randint(1, 1000)  # 第一次掷骰子——选择一种情况
-
-    first_choose = config.STATIC_FC if config.STATIC_FC and config.DEBUG_MODE else first_choose
+    # 第一次掷骰子——选择一种情况
+    first_choose = config.FREEZE_FC if config.FREEZE_FC and config.DEBUG_MODE else random.randint(1, 1000)
 
     if config.DEBUG_MODE:
         hoshino.logger.info(f'{uid}使用钓竿：{mode}，随机数为{first_choose}')
 
-    if first_choose <= probability[0]:
+    if first_choose <= probability[0] * 10:
         result = {'code': 1, 'msg': random.choice(no_fish_serif)}
         return result
-    elif first_choose <= probability[1]:
+    elif first_choose <= (probability[1] + probability[0]) * 10:
         result = {'code': 3, 'msg': '<随机事件case>'}
         return result
-    elif first_choose <= probability[2]:
-        second_choose = random.randint(1, 1000)  # 第二次掷骰子——钓上不同的鱼
-        if second_choose <= probability_2[0]:
-            fish = fish_list[0]
-        elif second_choose <= probability_2[1]:
-            fish = fish_list[1]
-        elif second_choose <= probability_2[2]:
-            fish = fish_list[2]
-        elif second_choose <= probability_2[3]:
-            fish = fish_list[3]
-        else:
-            fish = fish_list[4]
+    elif first_choose <= (probability[2] + probability[1] + probability[0]) * 10:
+        second_choose = config.FREEZE_SC if config.FREEZE_SC and config.DEBUG_MODE else random.randint(1, 1000)  # 第二次掷骰子——钓上不同的鱼
+        if config.DEBUG_MODE:
+            hoshino.logger.info(f'钓到了鱼，第二随机数为：{second_choose}')
+        prob_sum = 0
+        fish = fish_list[0]
+        for i in range(len(probability_2)):
+            prob_sum += (int(probability_2[i]) * 10)
+            print(prob_sum)
+            if second_choose <= prob_sum:
+                fish = fish_list[i]
+                break
         multi = random.randint(1, 2) if mode == 3 else 1  # 时运竿特别效果
         add_msg = f'另外，鱼竿发动了时运效果，{fish}变成了{multi}条！' if multi > 1 else ''
         increase_value(uid, 'fish', fish, 1 * multi)
@@ -80,7 +88,7 @@ def fishing(uid):
         msg = msg + add_msg + '\n你将鱼放进了背包。'
         result = {'code': 1, 'msg': msg}
         return result
-    elif first_choose <= probability[3]:
+    elif first_choose <= (probability[3] + probability[2] + probability[1] + probability[0]) * 10:
         second_choose = random.randint(1, 1000)  # 第二次掷骰子——钓上了金币还是幸运币
         if second_choose <= 800:
             coin_amount = random.randint(1, 30)
@@ -109,10 +117,10 @@ def sell_fish(uid, fish, num: int = 1):
     getUserInfo(uid)
     total_info = loadData(user_info_path)
     uid = str(uid)
-    if not total_info[uid]['fish'][fish]:
+    if not total_info[uid]['fish'].get(fish):
         return '数量不够喔'
-    if num > total_info[uid]['fish'][fish]:
-        num = total_info[uid]['fish'][fish]
+    if num > total_info[uid]['fish'].get(fish):
+        num = total_info[uid]['fish'].get(fish)
     decrease_value(uid, 'fish', fish, num)
     get_golds = fish_price[fish] * num
     money.increase_user_money(uid, 'gold', get_golds)
@@ -134,10 +142,10 @@ def free_fish(uid, fish, num: int = 1):
     getUserInfo(uid)
     total_info = loadData(user_info_path)
     uid = str(uid)
-    if not total_info[uid]['fish'][fish]:
+    if not total_info[uid]['fish'].get(fish):
         return '数量不足喔'
-    if num > total_info[uid]['fish'][fish]:
-        num = total_info[uid]['fish'][fish]
+    if num > total_info[uid]['fish'].get(fish):
+        num = total_info[uid]['fish'].get(fish)
     decrease_value(uid, 'fish', fish, num)
     get_frags = fish_price[fish] * num
     increase_value(uid, 'statis', 'frags', get_frags)
@@ -149,7 +157,8 @@ def free_fish(uid, fish, num: int = 1):
         addition = f'\n一条美人鱼浮出水面！为了表示感谢，TA将{int(user_frags / config.FRAG_TO_CRYSTAL)}颗水之心放入了你的手中~'
     else:
         addition = ''
-    classifier = '条' if fish in ['🐟', '🐠'] else '只'
+
+    classifier = '条' if fish in ['🐟', '🐠', '🦈'] else '只'
     return f'{num}{classifier}{fish}成功回到了水里，获得{get_frags}个水心碎片~{addition}'
 
 
@@ -195,6 +204,7 @@ def decrease_value(uid, mainclass, subclass, num):
     uid = str(uid)
     getUserInfo(uid)
     total_info = loadData(user_info_path)
+    if not total_info[uid][mainclass].get(subclass): total_info[uid][mainclass][subclass] = 0
     total_info[uid][mainclass][subclass] -= num
     if total_info[uid][mainclass][subclass] < 0:
         total_info[uid][mainclass][subclass] = 0
@@ -208,6 +218,7 @@ def increase_value(uid, mainclass, subclass, num):
     uid = str(uid)
     getUserInfo(uid)
     total_info = loadData(user_info_path)
+    if not total_info[uid][mainclass].get(subclass): total_info[uid][mainclass][subclass] = 0
     total_info[uid][mainclass][subclass] += num
     saveData(total_info, user_info_path)
 
@@ -219,6 +230,7 @@ def set_value(uid, mainclass, subclass, num):
     uid = str(uid)
     getUserInfo(uid)
     total_info = loadData(user_info_path)
+    if not total_info[uid][mainclass].get(subclass): total_info[uid][mainclass][subclass] = 0
     total_info[uid][mainclass][subclass] = num
     saveData(total_info, user_info_path)
 
